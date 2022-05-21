@@ -6,7 +6,6 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed;
     public Rigidbody2D rb;
-    private bool isHorizonMove;
     private float moveX;
     private float moveY;
     private Vector2 moveDirection;
@@ -27,25 +26,21 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // ProcessInputs 호출
         ProcessInputs();
+    }
 
-        // 위, 아래 버튼 확인
-        bool hDown = Input.GetButtonDown("Horizontal");
-        bool vDown = Input.GetButtonDown("Vertical");
-        bool hUp = Input.GetButtonUp("Horizontal");
-        bool vUp = Input.GetButtonUp("Vertical");
+    void FixedUpdate()
+    {
+        Move();
+    }
 
-        // 수평이동 확인
-        if(hDown){
-            isHorizonMove = true;
-        }
-        else if(vDown){
-            isHorizonMove = false;
-        }
-        else if(hUp || vUp){
-            isHorizonMove = moveX != 0;
-        }
+    // 입력 처리 함수
+    void ProcessInputs()
+    {
+        moveX = Input.GetAxisRaw("Horizontal");
+        moveY = Input.GetAxisRaw("Vertical");
+
+        moveDirection = new Vector2(moveX, moveY).normalized;
 
         // 애니메이션 세팅
         if(anim.GetInteger("hAxisRaw") != moveX){
@@ -60,19 +55,8 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("isChange", false);
         }
     }
-
-    void FixedUpdate()
-    {
-        // Move 호출
-        Move();
-    }
-    void ProcessInputs()
-    {
-        moveX = Input.GetAxisRaw("Horizontal");
-        moveY = Input.GetAxisRaw("Vertical");
-
-        moveDirection = new Vector2(moveX, moveY).normalized;
-    }
+    
+    // 이동 처리 함수
     void Move()
     {
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
