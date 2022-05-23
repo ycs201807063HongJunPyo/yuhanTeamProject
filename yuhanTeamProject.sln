@@ -1,11 +1,6 @@
 ﻿
-<<<<<<< HEAD
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-=======
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
->>>>>>> 1135085245770be5ab8e6363683260cc12e14d1b
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWebTransport", "SimpleWebTransport.csproj", "{41D8DE1B-8EE6-A3C6-48A8-A2FD00D0297E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirror.Examples", "Mirror.Examples.csproj", "{8F22C1B5-E141-9D63-3989-39472450007A}"
