@@ -4606,7 +4606,7 @@ Transform:
   - {fileID: 2050353291}
   - {fileID: 1723140668}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1684341812
 GameObject:
@@ -5325,9 +5325,9 @@ ParticleSystem:
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
-    m_Position: {x: 9, y: 0, z: 6}
+    m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: -120, z: 0}
-    m_Scale: {x: 10.6, y: 1, z: 1}
+    m_Scale: {x: 10, y: 1, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -9418,7 +9418,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1684341812}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -683.3512, y: -384.31543, z: -0.19197653}
+  m_LocalPosition: {x: -790, y: -380, z: -0.19197653}
   m_LocalScale: {x: 0.71111107, y: 0.7111112, z: 0.7111112}
   m_Children: []
   m_Father: {fileID: 993063175}
@@ -9834,7 +9834,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1742176004}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 800167560}
+        m_TargetAssemblyTypeName: OnlineUI, Assembly-CSharp
+        m_MethodName: onClickEnterGameRoomButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1742176004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10047,7 +10059,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1843339090
 GameObject:
