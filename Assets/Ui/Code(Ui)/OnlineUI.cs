@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Mirror;
 
 public class OnlineUI : MonoBehaviour
 {
@@ -15,6 +16,16 @@ public class OnlineUI : MonoBehaviour
             PlayerSetting.playerName = playerNameInputField.text;
             createRoomGameUI.SetActive(true);
             gameObject.SetActive(true);
+        }
+        else {
+            Debug.Log("이름 필요");  //애니메이션 못해서 로그로함
+        }
+    }
+
+    public void onClickEnterGameRoomButton() {
+        if (playerNameInputField.text != "") {
+            var manager = MafiaRoomManager.singleton;
+            manager.StartClient();
         }
         else {
             Debug.Log("이름 필요");  //애니메이션 못해서 로그로함
