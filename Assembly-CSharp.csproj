@@ -67,6 +67,8 @@
     <Compile Include="Assets\Ui\Code(Ui)\CreateRoomUI.cs" />
     <Compile Include="Assets\Ui\Code(Ui)\MainMenuUi.cs" />
     <Compile Include="Assets\Ui\GameRoom\Scripts\GameRoomSettingUI.cs" />
+    <Compile Include="Assets\Ui\GameRoom\Scripts\SpriteSorter.cs" />
+    <Compile Include="Assets\Ui\GameRoom\Scripts\SortingSprite.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />

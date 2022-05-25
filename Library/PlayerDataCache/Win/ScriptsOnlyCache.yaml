@@ -10,6 +10,12 @@ ScriptsOnlyBuild:
     - MainMenuUi
     - OnlineUI
     - PlayerMovement
+    - SortingSprite
+    - SpriteSorter
+    Mirror.Components.dll:
+    - Mirror.NetworkTransform
+    Mirror.Editor.dll:
+    - Mirror.NetworkBehaviourInspector
     Mirror.dll:
     - Mirror.NetworkIdentity
     - kcp2k.KcpTransport
@@ -98,6 +104,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
+    - Class: 60
+      Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
     - Class: 104
@@ -115,13 +123,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3384}
     - Class: 114
-      Script: {instanceID: 5460}
+      Script: {instanceID: 3878}
     - Class: 114
-      Script: {instanceID: 6268}
+      Script: {instanceID: 4032}
     - Class: 114
-      Script: {instanceID: 6794}
+      Script: {instanceID: 5464}
     - Class: 114
-      Script: {instanceID: 35054}
+      Script: {instanceID: 6272}
+    - Class: 114
+      Script: {instanceID: 6798}
+    - Class: 114
+      Script: {instanceID: 7514}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -231,69 +243,73 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3828}
     - Class: 114
-      Script: {instanceID: 4180}
+      Script: {instanceID: 3878}
     - Class: 114
-      Script: {instanceID: 4300}
+      Script: {instanceID: 4184}
     - Class: 114
-      Script: {instanceID: 4634}
+      Script: {instanceID: 4304}
     - Class: 114
-      Script: {instanceID: 4694}
+      Script: {instanceID: 4638}
     - Class: 114
-      Script: {instanceID: 4724}
+      Script: {instanceID: 4698}
     - Class: 114
-      Script: {instanceID: 5266}
+      Script: {instanceID: 4728}
     - Class: 114
-      Script: {instanceID: 5460}
+      Script: {instanceID: 5270}
     - Class: 114
-      Script: {instanceID: 5514}
+      Script: {instanceID: 5464}
     - Class: 114
-      Script: {instanceID: 5530}
+      Script: {instanceID: 5518}
     - Class: 114
-      Script: {instanceID: 5604}
+      Script: {instanceID: 5534}
     - Class: 114
-      Script: {instanceID: 5822}
+      Script: {instanceID: 5608}
     - Class: 114
-      Script: {instanceID: 5824}
+      Script: {instanceID: 5826}
     - Class: 114
-      Script: {instanceID: 5846}
+      Script: {instanceID: 5828}
     - Class: 114
-      Script: {instanceID: 5866}
+      Script: {instanceID: 5850}
     - Class: 114
-      Script: {instanceID: 6064}
+      Script: {instanceID: 5870}
     - Class: 114
-      Script: {instanceID: 6142}
+      Script: {instanceID: 6068}
     - Class: 114
-      Script: {instanceID: 6268}
+      Script: {instanceID: 6146}
     - Class: 114
-      Script: {instanceID: 6422}
+      Script: {instanceID: 6272}
     - Class: 114
-      Script: {instanceID: 6516}
+      Script: {instanceID: 6426}
     - Class: 114
-      Script: {instanceID: 6522}
+      Script: {instanceID: 6520}
     - Class: 114
-      Script: {instanceID: 6634}
+      Script: {instanceID: 6526}
     - Class: 114
-      Script: {instanceID: 6670}
+      Script: {instanceID: 6638}
     - Class: 114
-      Script: {instanceID: 6720}
+      Script: {instanceID: 6674}
     - Class: 114
-      Script: {instanceID: 6794}
+      Script: {instanceID: 6724}
     - Class: 114
-      Script: {instanceID: 6804}
+      Script: {instanceID: 6798}
     - Class: 114
-      Script: {instanceID: 6908}
+      Script: {instanceID: 6808}
     - Class: 114
-      Script: {instanceID: 7064}
+      Script: {instanceID: 6912}
     - Class: 114
-      Script: {instanceID: 7190}
+      Script: {instanceID: 7068}
     - Class: 114
-      Script: {instanceID: 7250}
+      Script: {instanceID: 7194}
     - Class: 114
-      Script: {instanceID: 7936}
+      Script: {instanceID: 7254}
     - Class: 114
-      Script: {instanceID: 8292}
+      Script: {instanceID: 7942}
     - Class: 114
-      Script: {instanceID: 8558}
+      Script: {instanceID: 8160}
+    - Class: 114
+      Script: {instanceID: 8298}
+    - Class: 114
+      Script: {instanceID: 8564}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -819,6 +835,12 @@ ScriptsOnlyBuild:
     className: PlayerCamera
   - hash:
       serializedVersion: 2
+      Hash: ea714a8ddcfdee8a41aa00c4dd6ecdc7
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SortingSprite
+  - hash:
+      serializedVersion: 2
       Hash: cd1c93a552a813159175d818a844dc09
     assemblyName: Unity.2D.Tilemap.Extras.dll
     namespaceName: UnityEngine.Tilemaps
@@ -835,6 +857,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ActivationTrack
+  - hash:
+      serializedVersion: 2
+      Hash: b7bfb3df086b842b4721cfe2525dadd7
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SpriteSorter
   - hash:
       serializedVersion: 2
       Hash: 192ca9716d03752ea1d90a78bc2daac9
@@ -993,7 +1021,7 @@ ScriptsOnlyBuild:
     className: NetworkRigidbody2D
   - hash:
       serializedVersion: 2
-      Hash: d487a7773da6544da3523de9ef315f27
+      Hash: 94b4e55e1bd112206c74a14af3ed4a49
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMovement
@@ -1660,6 +1688,12 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameRoomSettingUI
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: RemoteTestResultSender
@@ -1915,12 +1949,6 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.Examples.dll
     namespaceName: Mirror.Examples.NetworkRoom
     className: NetworkRoomPlayerExt
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: GameRoomSettingUI
   platform: 5
   scenePathNames:
   - Assets/Scenes/MainMenuScene.unity

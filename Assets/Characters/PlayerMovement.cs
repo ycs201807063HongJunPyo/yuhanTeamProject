@@ -1,41 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class PlayerMovement : MonoBehaviour
+using Mirror;
+public class PlayerMovement : NetworkBehaviour
 {
     //이동관련 변수
-    public float moveSpeed;
-    public Rigidbody2D rb;
     private float moveX;
     private float moveY;
     private Vector2 moveDirection;
     private Animator anim;
+    public bool isMoving;  //이동 가능한지 확인
+
+    [SyncVar]
+    public float moveSpeed;
 
     //사격관련 변수
     public GameObject bulletImage;  //총알 이미지
-    public float shotDelay;  //조준 끝(사격)
-    public float curShotDelay;  //조준 중(조준)
     public float bulletLifeTime;  //총알 생존 시간
     private int shotFlag;  //방향 플래그 변수
     private int shotSpeed = 10;  //총알 속도 일괄 조정
+    [SyncVar]
+    public float shotDelay;  //조준 끝(사격)
+    [SyncVar]
+    public float curShotDelay;  //조준 중(조준)
+
+    
 
     void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        //카메라 조정 코드
+        if (hasAuthority) {
+            Camera cam = Camera.main;
+            cam.transform.SetParent(transform);
+            cam.transform.localPosition = new Vector3(0f, 0f, -10f);
+            cam.orthographicSize = 2.5f;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        ProcessInputs();
+
     }
 
     void FixedUpdate()
@@ -45,46 +56,56 @@ public class PlayerMovement : MonoBehaviour
         AimDelay();
     }
 
-    // 입력 처리 함수
-    void ProcessInputs()
-    {
-        moveX = Input.GetAxisRaw("Horizontal");
-        moveY = Input.GetAxisRaw("Vertical");
-        
-        moveDirection = new Vector2(moveX, moveY).normalized;
-
-        // 애니메이션 세팅
-        if (anim.GetInteger("hAxisRaw") != moveX){
-            anim.SetBool("isChange", true);
-            anim.SetInteger("hAxisRaw", (int)moveX);
-            //보는 방향 x축
-            if (moveDirection.x > 0 && moveDirection.y == 0) {
-                shotFlag = 1;
-            }
-            else if (moveDirection.x < 0 && moveDirection.y == 0) {
-                shotFlag = 2;
-            }
-        }
-        else if(anim.GetInteger("vAxisRaw") != moveY){
-            anim.SetBool("isChange", true);
-            anim.SetInteger("vAxisRaw", (int)moveY);
-            //보는 방향 y축
-            if (moveDirection.x == 0 && moveDirection.y > 0) {
-                shotFlag = 3;
-            }
-            else if (moveDirection.x == 0 && moveDirection.y < 0) {
-                shotFlag = 4;
-            }
-        }
-        else{
-            anim.SetBool("isChange", false);
-        }
-    }
     
     // 이동 처리 함수
     void Move()
     {
-        rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+        if (hasAuthority && isMoving) {
+            //바뀐 이동 시작
+            moveX = Input.GetAxisRaw("Horizontal");
+            moveY = Input.GetAxisRaw("Vertical");
+            Vector3 dir = Vector3.ClampMagnitude(new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0f), 1f);
+            //회전?
+            if(dir.x < 0f) {
+                transform.localScale = new Vector3(-0.75f, 0.75f, 1f);
+            }
+            else if(dir.x > 0f) {
+                transform.localScale = new Vector3(0.75f, 0.75f, 1f);
+            }
+            transform.position += dir * moveSpeed * Time.deltaTime;
+            //바뀐 이동 끝
+            //moveDirection = new Vector2(moveX, moveY).normalized;
+
+            
+            /*
+            // 애니메이션 세팅(잠시 끄고 새로운 세팅 테스트해봄
+            if (anim.GetInteger("hAxisRaw") != moveX) {
+                anim.SetBool("isChange", true);
+                anim.SetInteger("hAxisRaw", (int)moveX);
+                //보는 방향 x축
+                if (moveDirection.x > 0 && moveDirection.y == 0) {
+                    shotFlag = 1;
+                }
+                else if (moveDirection.x < 0 && moveDirection.y == 0) {
+                    shotFlag = 2;
+                }
+            }
+            else if (anim.GetInteger("vAxisRaw") != moveY) {
+                anim.SetBool("isChange", true);
+                anim.SetInteger("vAxisRaw", (int)moveY);
+                //보는 방향 y축
+                if (moveDirection.x == 0 && moveDirection.y > 0) {
+                    shotFlag = 3;
+                }
+                else if (moveDirection.x == 0 && moveDirection.y < 0) {
+                    shotFlag = 4;
+                }
+            }
+            else {
+                anim.SetBool("isChange", false);
+            }
+            */
+        }
     }
 
     //사격 함수
@@ -119,7 +140,7 @@ public class PlayerMovement : MonoBehaviour
 
     //사격 재장전 함수
     void AimDelay() {
-        curShotDelay += Time.deltaTime;
+        curShotDelay = curShotDelay + Time.deltaTime ;
     }
 
 
