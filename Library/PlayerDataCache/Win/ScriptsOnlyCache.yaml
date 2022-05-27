@@ -14,8 +14,6 @@ ScriptsOnlyBuild:
     - SpriteSorter
     Mirror.Components.dll:
     - Mirror.NetworkTransform
-    Mirror.Editor.dll:
-    - Mirror.NetworkBehaviourInspector
     Mirror.dll:
     - Mirror.NetworkIdentity
     - kcp2k.KcpTransport
@@ -32,6 +30,10 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.SceneViewOpenTilePaletteHelper
     - UnityEditor.Tilemaps.TileDragAndDropManager
     - UnityEditor.Tilemaps.TilemapPrefabStageHelper
+    Unity.2D.Tilemap.Extras.Editor.dll:
+    - UnityEditor.RuleTileEditor
+    Unity.2D.Tilemap.Extras.dll:
+    - UnityEngine.RuleTile
     Unity.RenderPipelines.Core.Runtime.dll:
     - UnityEngine.Rendering.UI.DebugUIHandlerBitField
     - UnityEngine.Rendering.UI.DebugUIHandlerButton
@@ -69,6 +71,14 @@ ScriptsOnlyBuild:
     - UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnimatorStateTransitionInspector
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -1954,4 +1964,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/MainMenuScene.unity
   - Assets/Scenes/GameWaiting Room.unity
   - Assets/Scenes/Gameplay Scene.unity
-  playerPath: E:/unity/ycsUnityTeamProject/yuhanTeamProject/Build/ycsUnityTeamProject.exe
+  playerPath: F:/edu/Project/team/yuhanTeamProject/Build/ycsUnityTeamProject.exe
