@@ -4243,7 +4243,7 @@ Transform:
   - {fileID: 2050353291}
   - {fileID: 1723140668}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1684341812
 GameObject:
@@ -9676,7 +9676,8 @@ MonoBehaviour:
   playerSpawnMethod: 0
   spawnPrefabs:
   - {fileID: 5736350057112638645, guid: d5683daa63ca76347b518233568be2e2, type: 3}
-  showRoomGUI: 1
+  - {fileID: 4262571915151281250, guid: ce2edb3a55d2d4d4dac6961b8865be83, type: 3}
+  showRoomGUI: 0
   minPlayers: 1
   roomPlayerPrefab: {fileID: 977585150306404015, guid: ac4dd9040c0651b47a4ccf8c616c557a,
     type: 3}
@@ -9697,7 +9698,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1843339090
 GameObject:
