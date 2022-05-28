@@ -13,6 +13,7 @@ ScriptsOnlyBuild:
     - SortingSprite
     - SpriteSorter
     Mirror.Components.dll:
+    - Mirror.Experimental.NetworkRigidbody2D
     - Mirror.NetworkAnimator
     - Mirror.NetworkTransform
     Mirror.dll:
@@ -199,8 +200,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 95
       Script: {instanceID: 0}
-    - Class: 96
-      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
@@ -255,6 +254,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 4304}
     - Class: 114
       Script: {instanceID: 4638}
+    - Class: 114
+      Script: {instanceID: 4686}
     - Class: 114
       Script: {instanceID: 4698}
     - Class: 114
@@ -1028,7 +1029,7 @@ ScriptsOnlyBuild:
     className: NetworkRigidbody2D
   - hash:
       serializedVersion: 2
-      Hash: 70a394fc10cc2540c9793b134b424b84
+      Hash: 1af94b70e18e65c8ca76c013091af0db
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMovement

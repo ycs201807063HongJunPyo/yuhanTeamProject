@@ -5,6 +5,7 @@ using Mirror;
 public class PlayerMovement : NetworkBehaviour
 {
     //이동관련 변수
+    
     private float moveX;
     private float moveY;
     private Animator anim;  // 애니메이션 관련 정보
@@ -13,14 +14,16 @@ public class PlayerMovement : NetworkBehaviour
     [SyncVar]
     public float moveSpeed;
 
+    [SyncVar]
     //사격관련 변수
-    
     private int shotFlag;  //방향 플래그 변수
+    public int shotSpeed;
     [SyncVar]
     public float shotDelay;  //조준 끝(사격)
     [SyncVar]
     public float curShotDelay;  //조준 중(조준)
-    
+    public Rigidbody2D rig;
+
 
 
 
@@ -109,20 +112,18 @@ public class PlayerMovement : NetworkBehaviour
             shotFlag = 4;
         }
 
-        if (curShotDelay > shotDelay) {
+        if (curShotDelay > shotDelay && shotFlag != 5) {
            
             var manager = NetworkRoomManager.singleton as MafiaRoomManager;
             var bullet = Instantiate(manager.spawnPrefabs[1], transform.position, transform.rotation);
-            NetworkServer.Spawn(bullet);  // 총알 스폰
-
+            rig = bullet.GetComponent<Rigidbody2D>();
             if (manager.mode == Mirror.NetworkManagerMode.Host) {
-                bullet.GetComponent<Bullet>().RpcShotUpdate(this.shotFlag);
+                NetworkServer.Spawn(bullet);  // 총알 스폰
+                RpcShotUpdate(GetShotFlag());
             }
-            else {
-                bullet.GetComponent<Bullet>().CmdShotUpdate(this.shotFlag);
+            else{
+                CmdShotUpdate(GetShotFlag());
             }
-            
-
             curShotDelay = 0;
         }
         else {
@@ -130,12 +131,42 @@ public class PlayerMovement : NetworkBehaviour
         }
     }
 
+    [Command(requiresAuthority = false)]
+    public void CmdShotUpdate(int shotFlag) {
+        Debug.Log("Cmd 들어와짐");
+        RpcShotUpdate(shotFlag);
+    }
+
+    [ClientRpc]
+    public void RpcShotUpdate(int flag) {
+        Debug.Log("Rpc 들어와짐");
+        
+        if (flag == 1) {
+            rig.AddForce(Vector2.right * shotSpeed, ForceMode2D.Impulse);
+            //dirBullet = Vector3.right;
+        }
+        else if (flag == 2) {
+            rig.AddForce(Vector2.left * shotSpeed, ForceMode2D.Impulse);
+            //dirBullet = Vector3.left;
+        }
+        else if (flag == 3) {
+            rig.AddForce(Vector2.up * shotSpeed, ForceMode2D.Impulse);
+            //dirBullet = Vector3.up;
+        }
+        else if (flag == 4) {
+            rig.AddForce(Vector2.down * shotSpeed, ForceMode2D.Impulse);
+            //dirBullet = Vector3.down;
+        }
+
+    }
+
     //사격 재장전 함수
     void AimDelay() {
         curShotDelay = curShotDelay + Time.deltaTime ;
     }
-
-
+    public int GetShotFlag() {
+        return shotFlag;
+    }
 }
 
 
