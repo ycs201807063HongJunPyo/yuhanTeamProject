@@ -3,7 +3,8 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - Bullet
     - CreateRoomUI
-    - GameRoomSettingUI
+    - GameRuleSettingUI
+    - GameRuleStore
     - MafiaGamePlayer
     - MafiaRoomManager
     - MafiaRoomPlayer
@@ -129,9 +130,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3384}
     - Class: 114
+      Script: {instanceID: 3494}
+    - Class: 114
       Script: {instanceID: 3878}
     - Class: 114
       Script: {instanceID: 4032}
+    - Class: 114
+      Script: {instanceID: 4184}
+    - Class: 114
+      Script: {instanceID: 4728}
     - Class: 114
       Script: {instanceID: 5464}
     - Class: 114
@@ -139,7 +146,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6798}
     - Class: 114
-      Script: {instanceID: 7514}
+      Script: {instanceID: 6808}
+    - Class: 114
+      Script: {instanceID: 7254}
+    - Class: 114
+      Script: {instanceID: 7942}
+    - Class: 114
+      Script: {instanceID: 31172}
+    - Class: 114
+      Script: {instanceID: 31736}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -585,7 +600,7 @@ ScriptsOnlyBuild:
     className: MafiaRoomPlayer
   - hash:
       serializedVersion: 2
-      Hash: f9693aa3aa8bd17c4775ad5d64f69542
+      Hash: b22ba2a24fb1bab58fe7dda0cc4638ea
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MafiaRoomManager
@@ -1957,6 +1972,18 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.Examples.dll
     namespaceName: Mirror.Examples.NetworkRoom
     className: NetworkRoomPlayerExt
+  - hash:
+      serializedVersion: 2
+      Hash: 69cb23c11c0455402c716675db5a7f7e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameRuleSettingUI
+  - hash:
+      serializedVersion: 2
+      Hash: e89f9e327199076d913b9762417ad2b5
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameRuleStore
   platform: 5
   scenePathNames:
   - Assets/Scenes/MainMenuScene.unity

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Mirror;
 
 public class CreateRoomUI : MonoBehaviour
 {
@@ -68,10 +69,9 @@ public class CreateRoomUI : MonoBehaviour
 
     public void CeateRoom()
     {
-        var manager = MafiaRoomManager.singleton;
-        //방 설정 작업 처리
-        //
-        //
+        var manager = NetworkRoomManager.singleton as MafiaRoomManager;
+        manager.trainTime = gameRoomData.escTime;
+        manager.playerCount = gameRoomData.maxPlayerCount;
         manager.StartHost();
     }
 

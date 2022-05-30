@@ -133,13 +133,11 @@ public class PlayerMovement : NetworkBehaviour
 
     [Command(requiresAuthority = false)]
     public void CmdShotUpdate(int shotFlag) {
-        Debug.Log("Cmd 들어와짐");
         RpcShotUpdate(shotFlag);
     }
 
     [ClientRpc]
     public void RpcShotUpdate(int flag) {
-        Debug.Log("Rpc 들어와짐");
         
         if (flag == 1) {
             rig.AddForce(Vector2.right * shotSpeed, ForceMode2D.Impulse);
