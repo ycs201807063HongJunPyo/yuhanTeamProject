@@ -15,7 +15,7 @@ public class OnlineUI : MonoBehaviour
         if(playerNameInputField.text != "") {
             PlayerSetting.playerName = playerNameInputField.text;
             createRoomGameUI.SetActive(true);
-            gameObject.SetActive(true);
+            gameObject.SetActive(false);
         }
         else {
             Debug.Log("이름 필요");  //애니메이션 못해서 로그로함

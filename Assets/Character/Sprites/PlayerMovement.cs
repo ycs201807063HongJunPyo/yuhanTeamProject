@@ -35,16 +35,7 @@ public class PlayerMovement : NetworkBehaviour
         anim = GetComponent<Animator>();
     }
 
-    [SyncVar]
-    public string nickname;
-    [SerializeField]
-    private Text nicknameText; 
-    public void SetNickname(string value)
-    {
-        nickname = value;
-        nicknameText.text = value;
-        Debug.Log(nickname + " " + nicknameText.text);
-    }
+    
     
 
     // Start is called before the first frame update
@@ -59,12 +50,23 @@ public class PlayerMovement : NetworkBehaviour
         }
     }
 
+    /* 이름 함수 처리
+    [SyncVar(hook =nameof(SetNickname_Hook))]
+    public string nickname;
+    [SerializeField]
+    private Text nicknameText;
+    public void SetNickname_Hook(string _, string value) {
+        //nicknameText.text = string.Format("{0}", FindObjectsOfType<MafiaRoomPlayer>().Length);
+        nicknameText.text = value;
+        Debug.Log(nicknameText.text);
+    }
+    */
     void FixedUpdate()
     {
         Move();
         Fire();
         AimDelay();
-        UpdateNickname();
+        //UpdateNickname();
     }
 
     // 이동 & 애니메이션 함수
@@ -167,19 +169,19 @@ public class PlayerMovement : NetworkBehaviour
     public void RpcShotUpdate(int flag) {
         
         if (flag == 1) {
-            rig.AddForce(Vector2.right * shotSpeed, ForceMode2D.Impulse);
+            rig.AddForce(Vector2.right * shotSpeed * Time.deltaTime, ForceMode2D.Impulse);
             //dirBullet = Vector3.right;
         }
         else if (flag == 2) {
-            rig.AddForce(Vector2.left * shotSpeed, ForceMode2D.Impulse);
+            rig.AddForce(Vector2.left * shotSpeed * Time.deltaTime, ForceMode2D.Impulse);
             //dirBullet = Vector3.left;
         }
         else if (flag == 3) {
-            rig.AddForce(Vector2.up * shotSpeed, ForceMode2D.Impulse);
+            rig.AddForce(Vector2.up * shotSpeed * Time.deltaTime, ForceMode2D.Impulse);
             //dirBullet = Vector3.up;
         }
         else if (flag == 4) {
-            rig.AddForce(Vector2.down * shotSpeed, ForceMode2D.Impulse);
+            rig.AddForce(Vector2.down * shotSpeed * Time.deltaTime, ForceMode2D.Impulse);
             //dirBullet = Vector3.down;
         }
 
@@ -189,16 +191,16 @@ public class PlayerMovement : NetworkBehaviour
     void AimDelay() {
         curShotDelay = curShotDelay + Time.deltaTime ;
     }
+    /*
     public void UpdateNickname() {
-        Debug.Log(nickname + " " + nicknameText.text);
         if (transform.localScale.x < 0) {
             nicknameText.transform.localScale = new Vector3(-1f, 1f, 1f);
         }
         else if (transform.localScale.x > 0) {
             nicknameText.transform.localScale = new Vector3(1f, 1f, 1f);
         }
-        
     }
+    */
 
     public int GetShotFlag() {
         return shotFlag;

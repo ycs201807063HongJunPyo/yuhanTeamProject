@@ -10,6 +10,10 @@ public class MafiaRoomPlayer : NetworkRoomPlayer
     [SerializeField]
     public GameObject lobbyPlayerCharacter;
 
+    public PlayerMovement playerCharacter;
+
+    
+
     //유튭11 1:52 에러
     public new void Start()
     {
@@ -19,12 +23,12 @@ public class MafiaRoomPlayer : NetworkRoomPlayer
          {
             CmdSetNickname(PlayerSetting.playerName);  // 오류 nickname
          }
-         /*
+         
         if (isServer)
         {
-            SpawnLobbyPlayerCharactor();
+            SpawnLobbyPlayerCharacter();
         }
-        */
+        
          //플레이어 숫자 알려주기
         //LobbyUIManager.Instance.GameRoomPlayerCounter.UpdatePlayerCount();
     }
@@ -36,11 +40,17 @@ public class MafiaRoomPlayer : NetworkRoomPlayer
             LobbyUIManager.Instance.GameRoomPlayerCounter.UpdatePlayerCount();
         }
     }
-    
+
+    private void SpawnLobbyPlayerCharacter() {
+        var player = Instantiate(MafiaRoomManager.singleton.spawnPrefabs[0]);
+        NetworkServer.Spawn(player, connectionToClient);
+    }
+
     [Command]
     public void CmdSetNickname(string nick)
     {
         nickname = nick;
-        lobbyPlayerCharacter.GetComponent<PlayerMovement>().SetNickname(nickname);
+        //playerCharacter.nickname = nick;
+        //lobbyPlayerCharacter.GetComponent<PlayerMovement>().nickname = nick;
     }
 }
