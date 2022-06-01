@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using UnityEngine.UI;
+
 public class PlayerMovement : NetworkBehaviour
 {
     //이동관련 변수
@@ -33,6 +35,15 @@ public class PlayerMovement : NetworkBehaviour
         anim = GetComponent<Animator>();
     }
 
+    [SyncVar(hook = nameof(SetNickname_Hook))]
+    public string nickname;
+    [SerializeField]
+    private Text nicknameText; 
+    public void SetNickname_Hook(string _, string value)
+    {
+        nicknameText.text = value;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,10 +71,10 @@ public class PlayerMovement : NetworkBehaviour
             //바뀐 이동 시작
             Vector3 dir = Vector3.ClampMagnitude(new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0f), 1f);
             //회전?
-            if(dir.x < 0f) {
+            if (dir.x < 0f) {
                 transform.localScale = new Vector3(-0.75f, 0.75f, 1f);
             }
-            else if(dir.x > 0f) {
+            else if (dir.x > 0f) {
                 transform.localScale = new Vector3(0.75f, 0.75f, 1f);
             }
             transform.position += dir * moveSpeed * Time.deltaTime;
@@ -86,8 +97,20 @@ public class PlayerMovement : NetworkBehaviour
             else {
                 anim.SetBool("isChange", false);
             }
-            // 애니메이션 세팅 끝   
+            // 애니메이션 세팅 끝
         }
+        
+        //유튭 11 6:26
+        if (transform.localScale.x < 0)
+        {
+            nicknameText.transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+        else if (transform.localScale.x > 0)
+        {
+            nicknameText.transform.localScale = new Vector3(1f, 1f, 1f);
+        }
+        // 6:26 여기까지
+        
     }
 
     //사격 함수
