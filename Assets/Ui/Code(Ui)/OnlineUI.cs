@@ -24,6 +24,7 @@ public class OnlineUI : MonoBehaviour
 
     public void onClickEnterGameRoomButton() {
         if (playerNameInputField.text != "") {
+            PlayerSetting.playerName = playerNameInputField.text;
             var manager = MafiaRoomManager.singleton;
             manager.StartClient();
         }

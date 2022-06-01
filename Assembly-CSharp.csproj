@@ -57,19 +57,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Ui\Code(Ui)\OnlineUI.cs" />
+    <Compile Include="Assets\Ui\GameRoom\Scripts\LobbyUIManager.cs" />
     <Compile Include="Assets\Multi\MafiaRoomPlayer.cs" />
     <Compile Include="Assets\Multi\MafiaRoomManager.cs" />
     <Compile Include="Assets\Multi\MafiaGamePlayer.cs" />
     <Compile Include="Assets\BulletSc\Bullet.cs" />
     <Compile Include="Assets\Ui\Code(Ui)\MultiScript\ycsMulti.cs" />
     <Compile Include="Assets\Ui\Code(Ui)\PlayerSetting.cs" />
+    <Compile Include="Assets\Ui\GameRoom\Scripts\GameRoomPlayerCounter.cs" />
     <Compile Include="Assets\Ui\GameRoom\Scripts\SortingSprite.cs" />
     <Compile Include="Assets\Ui\GameRoom\Scripts\SpriteSorter.cs" />
     <Compile Include="Assets\Character\Sprites\PlayerMovement.cs" />
+    <Compile Include="Assets\Ui\Code(Ui)\GameRuleSettingUI.cs" />
     <Compile Include="Assets\Ui\Code(Ui)\CreateRoomUI.cs" />
     <Compile Include="Assets\Ui\Code(Ui)\MainMenuUi.cs" />
     <Compile Include="Assets\Ui\GameRoom\Scripts\GameRoomSettingUI.cs" />
-    <Compile Include="Assets\Ui\Code(Ui)\GameRuleSettingUI.cs" />
     <Compile Include="Assets\Ui\Code(Ui)\GameRuleStore.cs" />
   </ItemGroup>
   <ItemGroup>

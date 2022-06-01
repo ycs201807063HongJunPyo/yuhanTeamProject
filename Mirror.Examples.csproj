@@ -61,7 +61,6 @@
     <Compile Include="Assets\Mirror\Examples\AdditiveLevels\Scripts\AdditiveLevelsNetworkManager.cs" />
     <Compile Include="Assets\Mirror\Examples\Room\Scripts\RandomColor.cs" />
     <Compile Include="Assets\Mirror\Examples\MultipleAdditiveScenes\Scripts\MultiSceneNetManager.cs" />
-    <Compile Include="Assets\Mirror\Examples\Benchmark\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Mirror\Examples\AdditiveLevels\Scripts\LookAtMainCamera.cs" />
     <Compile Include="Assets\Mirror\Examples\AdditiveScenes\Scripts\AdditiveNetworkManager.cs" />
     <Compile Include="Assets\Mirror\Examples\Tanks\Scripts\FaceCamera.cs" />

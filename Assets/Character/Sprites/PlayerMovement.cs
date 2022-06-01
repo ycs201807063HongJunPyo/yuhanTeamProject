@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using UnityEngine.UI;
+
 public class PlayerMovement : NetworkBehaviour
 {
     //이동관련 변수
@@ -33,10 +35,21 @@ public class PlayerMovement : NetworkBehaviour
         anim = GetComponent<Animator>();
     }
 
+    [SyncVar]
+    public string nickname;
+    [SerializeField]
+    private Text nicknameText; 
+    public void SetNickname(string value)
+    {
+        nickname = value;
+        nicknameText.text = value;
+        Debug.Log(nickname + " " + nicknameText.text);
+    }
+    
+
     // Start is called before the first frame update
     void Start()
     {
-        
         //카메라 조정 코드
         if (hasAuthority) {
             Camera cam = Camera.main;
@@ -51,6 +64,7 @@ public class PlayerMovement : NetworkBehaviour
         Move();
         Fire();
         AimDelay();
+        UpdateNickname();
     }
 
     // 이동 & 애니메이션 함수
@@ -60,10 +74,10 @@ public class PlayerMovement : NetworkBehaviour
             //바뀐 이동 시작
             Vector3 dir = Vector3.ClampMagnitude(new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0f), 1f);
             //회전?
-            if(dir.x < 0f) {
+            if (dir.x < 0f) {
                 transform.localScale = new Vector3(-0.75f, 0.75f, 1f);
             }
-            else if(dir.x > 0f) {
+            else if (dir.x > 0f) {
                 transform.localScale = new Vector3(0.75f, 0.75f, 1f);
             }
             transform.position += dir * moveSpeed * Time.deltaTime;
@@ -86,8 +100,21 @@ public class PlayerMovement : NetworkBehaviour
             else {
                 anim.SetBool("isChange", false);
             }
-            // 애니메이션 세팅 끝   
+            // 애니메이션 세팅 끝
         }
+        
+        /*
+        //유튭 11 6:26
+        if (transform.localScale.x < 0)
+        {
+            nicknameText.transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+        else if (transform.localScale.x > 0)
+        {
+            nicknameText.transform.localScale = new Vector3(1f, 1f, 1f);
+        }
+        // 6:26 여기까지
+        */
     }
 
     //사격 함수
@@ -162,6 +189,17 @@ public class PlayerMovement : NetworkBehaviour
     void AimDelay() {
         curShotDelay = curShotDelay + Time.deltaTime ;
     }
+    public void UpdateNickname() {
+        Debug.Log(nickname + " " + nicknameText.text);
+        if (transform.localScale.x < 0) {
+            nicknameText.transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+        else if (transform.localScale.x > 0) {
+            nicknameText.transform.localScale = new Vector3(1f, 1f, 1f);
+        }
+        
+    }
+
     public int GetShotFlag() {
         return shotFlag;
     }

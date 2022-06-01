@@ -47,7 +47,7 @@ MonoBehaviour:
   sceneId: 0
   serverOnly: 0
   visible: 0
-  m_AssetId: 
+  m_AssetId: ac4dd9040c0651b47a4ccf8c616c557a
   hasSpawned: 0
 --- !u!114 &977585150306404015
 MonoBehaviour:
@@ -66,3 +66,6 @@ MonoBehaviour:
   showRoomGUI: 1
   readyToBegin: 0
   index: 0
+  nickname: 
+  lobbyPlayerCharacter: {fileID: 5736350057112638645, guid: d5683daa63ca76347b518233568be2e2,
+    type: 3}

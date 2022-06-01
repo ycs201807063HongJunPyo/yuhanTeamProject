@@ -84,7 +84,7 @@ SpriteRenderer:
   m_Size: {x: 0.12, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &2139190647933596821
@@ -141,13 +141,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  rb: {fileID: 2139190647933596818}
   isMoving: 1
   moveSpeed: 2
-  bulletImage: {fileID: 0}
+  shotSpeed: 0
   shotDelay: 1
   curShotDelay: 0
-  bulletLifeTime: 2.5
+  rig: {fileID: 0}
 --- !u!114 &2139190647933596823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,5 +162,5 @@ MonoBehaviour:
   sceneId: 0
   serverOnly: 0
   visible: 0
-  m_AssetId: 
+  m_AssetId: 9da123c07e64eef408d9882c510f8fe8
   hasSpawned: 0

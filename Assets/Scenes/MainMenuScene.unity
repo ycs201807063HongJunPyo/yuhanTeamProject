@@ -9686,6 +9686,9 @@ MonoBehaviour:
   _allPlayersReady: 0
   roomSlots: []
   clientIndex: 0
+  maxConnetions: 0
+  trainTime: 0
+  playerCount: 0
 --- !u!4 &1841850972
 Transform:
   m_ObjectHideFlags: 0
