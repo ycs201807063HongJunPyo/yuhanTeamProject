@@ -52,6 +52,16 @@ public class GameRuleStore : NetworkBehaviour {
         killTime = Mathf.Clamp(killTime + (isPlus ? 1 : -1), 2, 5);
         SetKillTimeText(killTime);
     }
+    
+    //유튭 11 0:38초
+    [SyncVar(hook = nameof(SetplayerCount_Hook))]
+    private int playerCount; // 유튭 11
+    public void SetplayerCount_Hook(int _, int value)
+    {
+        UpdateGameRuleOverview();
+    }
+     
+
     [SerializeField]
     private Text gameRuleOverview;
 
@@ -59,7 +69,7 @@ public class GameRuleStore : NetworkBehaviour {
         var manager = NetworkManager.singleton as MafiaRoomManager;
         StringBuilder sb = new StringBuilder();
         sb.Append($"열차 도착 시간 : {manager.trainTime}\n");
-        sb.Append($"최대 플레이어 수 : {manager.playerCount}\n");
+        sb.Append($"최대 플레이어 수 : {playerCount}\n");  // 유튭11번 manager.playerCount -> playerCount
         sb.Append($"총알 획득 임무 수 : {missionBullet}\n");
         sb.Append($"치료약 획득 임무 수 : {missionMedic}\n");
         sb.Append($"킬 쿨타임 : {killTime}\n");
@@ -76,6 +86,13 @@ public class GameRuleStore : NetworkBehaviour {
         //일단 켜주기(호스트 조건 안줌)
         SetDefaultGameRule();
         UpdateGameRuleOverview();
+        
+        if (isServer) // 유튭11 0:43 //오류
+        {
+            var manager = NetworkManager.singleton as MafiaRoomManager; //유튭 11 0:51
+            playerCount = manager.playerCount; //유튭11 0:51
+            SetDefaultGameRule(); //SetRecommendGameRule(); // 오류
+        }
     }
 
     // Update is called once per frame
