@@ -16,9 +16,10 @@ public class PlayerMovement : NetworkBehaviour
     [SyncVar]
     public float moveSpeed;
 
-    [SyncVar]
     //사격관련 변수
+    [SyncVar]
     private int shotFlag;  //방향 플래그 변수
+    [SyncVar]
     public int shotSpeed;
     [SyncVar]
     public float shotDelay;  //조준 끝(사격)
@@ -26,6 +27,7 @@ public class PlayerMovement : NetworkBehaviour
     public float curShotDelay;  //조준 중(조준)
     public Rigidbody2D rig;
 
+    
 
 
 
@@ -48,25 +50,36 @@ public class PlayerMovement : NetworkBehaviour
             cam.transform.localPosition = new Vector3(0f, 0f, -10f);
             cam.orthographicSize = 2.5f;
         }
-    }
 
-    /* 이름 함수 처리
-    [SyncVar(hook =nameof(SetNickname_Hook))]
+        
+
+
+    }
+    //이름 관련
+    [SyncVar]
     public string nickname;
     [SerializeField]
     private Text nicknameText;
+
+    [Command]
+    public void CmdSetNickname(string nick) {
+        nickname = nick;
+        nicknameText.text = nick;
+        //lobbyPlayerCharacter.GetComponent<PlayerMovement>().nickname = nick;
+    }
+
+    
     public void SetNickname_Hook(string _, string value) {
         //nicknameText.text = string.Format("{0}", FindObjectsOfType<MafiaRoomPlayer>().Length);
         nicknameText.text = value;
         Debug.Log(nicknameText.text);
     }
-    */
     void FixedUpdate()
     {
         Move();
         Fire();
         AimDelay();
-        //UpdateNickname();
+        UpdateNickname();
     }
 
     // 이동 & 애니메이션 함수
@@ -191,8 +204,11 @@ public class PlayerMovement : NetworkBehaviour
     void AimDelay() {
         curShotDelay = curShotDelay + Time.deltaTime ;
     }
-    /*
+    
     public void UpdateNickname() {
+        //닉네임 테스트 코드
+        CmdSetNickname(PlayerSetting.playerName);  // 오류 nickname
+        Debug.Log(PlayerSetting.playerName);
         if (transform.localScale.x < 0) {
             nicknameText.transform.localScale = new Vector3(-1f, 1f, 1f);
         }
@@ -200,7 +216,7 @@ public class PlayerMovement : NetworkBehaviour
             nicknameText.transform.localScale = new Vector3(1f, 1f, 1f);
         }
     }
-    */
+    
 
     public int GetShotFlag() {
         return shotFlag;
