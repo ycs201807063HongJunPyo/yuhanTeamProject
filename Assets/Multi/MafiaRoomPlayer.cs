@@ -7,7 +7,7 @@ public class MafiaRoomPlayer : NetworkRoomPlayer
 {
     [SyncVar]
     public string nickname;
-    [SerializeField]
+
     public GameObject lobbyPlayerCharacter;
 
     public PlayerMovement playerCharacter;
@@ -19,11 +19,12 @@ public class MafiaRoomPlayer : NetworkRoomPlayer
     {
         base.Start();
         
+        /*
          if (isLocalPlayer)  //isLocalPlayer
          {
             CmdSetNickname(PlayerSetting.playerName);  // ¿À·ù nickname
          }
-         
+         */
         if (isServer)
         {
             SpawnLobbyPlayerCharacter();
@@ -50,7 +51,8 @@ public class MafiaRoomPlayer : NetworkRoomPlayer
     public void CmdSetNickname(string nick)
     {
         nickname = nick;
-        //playerCharacter.nickname = nick;
+        playerCharacter.nickname = nick;
+        Debug.Log(playerCharacter.nickname);
         //lobbyPlayerCharacter.GetComponent<PlayerMovement>().nickname = nick;
     }
 }
