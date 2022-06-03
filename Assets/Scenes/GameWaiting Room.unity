@@ -354,7 +354,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &70629366
 Transform:
   m_ObjectHideFlags: 0
@@ -1942,7 +1942,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &558886193
 Transform:
   m_ObjectHideFlags: 0
@@ -1951,7 +1951,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 558886192}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalPosition: {x: 1, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1719426463}
@@ -3631,7 +3631,7 @@ GameObject:
   - component: {fileID: 1135056112}
   - component: {fileID: 1135056113}
   m_Layer: 0
-  m_Name: Ship Room Collider2
+  m_Name: Ship Room Collider1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3649,7 +3649,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1719426463}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &1135056113
 PolygonCollider2D:
@@ -3676,12 +3676,13 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 2.2511792, y: 1.3014972}
-      - {x: 2.2850142, y: 0.16161835}
-      - {x: 2.2774568, y: -0.85864675}
-      - {x: 1.8241925, y: -1.2981126}
-      - {x: 1.9454048, y: -1.3380066}
-      - {x: 2.704966, y: -1.3249123}
+    - - {x: 2.400022, y: 2.9175096}
+      - {x: -2.404399, y: 2.8913841}
+      - {x: -2.4070914, y: 0.331725}
+      - {x: 2.390862, y: 0.37462586}
+      - {x: 2.391214, y: -1.1280062}
+      - {x: 2.399022, y: -2.9859138}
+      - {x: 2.6482637, y: -3.0259778}
       - {x: 2.6997404, y: 1.6490047}
 --- !u!1 &1183982797
 GameObject:
@@ -3836,7 +3837,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -80, y: 24.839996}
+  m_AnchoredPosition: {x: -80, y: 24.839966}
   m_SizeDelta: {x: 160, y: 49.674896}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1256402486
@@ -3944,7 +3945,7 @@ GameObject:
   - component: {fileID: 1323015399}
   - component: {fileID: 1323015400}
   m_Layer: 0
-  m_Name: Ship Room Collider3
+  m_Name: Ship Room Collider2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3962,7 +3963,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1719426463}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &1323015400
 PolygonCollider2D:
@@ -3989,13 +3990,15 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -2.2109795, y: 1.9312913}
+    - - {x: -2.3604362, y: -0.87493837}
+      - {x: -2.381086, y: 2.9200356}
       - {x: -2.666241, y: 1.6557046}
-      - {x: -2.7116656, y: -2.0552056}
-      - {x: 2.7116656, y: -2.0820053}
-      - {x: 1.9651834, y: -1.2738129}
-      - {x: -1.9271178, y: -1.3146548}
-      - {x: -2.2515142, y: -0.876872}
+      - {x: -2.704578, y: -3.04395}
+      - {x: 2.5911736, y: -3.5172794}
+      - {x: 2.4258888, y: -2.9429836}
+      - {x: 2.398694, y: -2.8551342}
+      - {x: -2.387521, y: -2.8908591}
+      - {x: -2.3720062, y: -1.5147716}
 --- !u!1 &1326998702
 GameObject:
   m_ObjectHideFlags: 0
@@ -4087,7 +4090,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1330336677
 Transform:
   m_ObjectHideFlags: 0
@@ -4306,7 +4309,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1381934724
 Transform:
   m_ObjectHideFlags: 0
@@ -4388,7 +4391,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1387498020
 Transform:
   m_ObjectHideFlags: 0
@@ -4524,73 +4527,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1419684327}
   m_CullTransparentMesh: 1
---- !u!1 &1428079159
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1428079160}
-  - component: {fileID: 1428079161}
-  m_Layer: 0
-  m_Name: Ship Room Collider1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1428079160
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1428079159}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1719426463}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &1428079161
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1428079159}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 1.2119879, y: 4.00421}
-      - {x: -1.192589, y: 3.9948723}
-      - {x: -2.2681139, y: 3.389734}
-      - {x: -2.6677005, y: 2.8068619}
-      - {x: -2.2250662, y: 1.2080828}
-      - {x: -0.87065727, y: 1.7026042}
-      - {x: 0.8259018, y: 1.7101597}
-      - {x: 2.2292702, y: 1.2076647}
-      - {x: 2.3104916, y: 1.2111659}
-      - {x: 2.6900156, y: 2.798037}
-      - {x: 2.3580437, y: 3.364189}
 --- !u!1 &1459578870
 GameObject:
   m_ObjectHideFlags: 0
@@ -4643,7 +4579,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1489533954
 Transform:
   m_ObjectHideFlags: 0
@@ -5278,7 +5214,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1718927630
 Transform:
   m_ObjectHideFlags: 0
@@ -5414,7 +5350,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -32768
-  m_Sprite: {fileID: 21300000, guid: 91028abc8a3429843bef2f8ca356e78a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 58aaf114cfe441044a66fc35dd8cecab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5434,7 +5370,7 @@ Transform:
   m_GameObject: {fileID: 1719426461}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1, z: 1}
   m_Children:
   - {fileID: 558886193}
   - {fileID: 70629366}
@@ -5443,7 +5379,6 @@ Transform:
   - {fileID: 1330336677}
   - {fileID: 1489533954}
   - {fileID: 1387498020}
-  - {fileID: 1428079160}
   - {fileID: 1135056112}
   - {fileID: 1323015399}
   m_Father: {fileID: 0}

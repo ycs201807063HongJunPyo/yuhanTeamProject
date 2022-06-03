@@ -13,54 +13,60 @@ public struct GameRuleData {
 }
 
 public class GameRuleStore : NetworkBehaviour {
-    [SyncVar]
+    [SyncVar(hook = nameof(SetMissionBulletText_Hook))]
     private int missionBullet;
     [SerializeField]
     private Text missionBulletText;
-    public void SetMissionBulletText(int value) {
-        //missionBulletText.text = value.ToString();
+    public void SetMissionBulletText_Hook(int _, int value) {
         missionBulletText.text = string.Format("{0}", value);
         UpdateGameRuleOverview();
     }
     public void OnMissionBulletChange(bool isPlus) {
-        missionBullet = Mathf.Clamp(missionBullet + (isPlus ? 1 : -1), 1, 5);
-        SetMissionBulletText(missionBullet);
+        if (isServer) {
+            missionBullet = Mathf.Clamp(missionBullet + (isPlus ? 1 : -1), 1, 5);
+        }
     }
-    [SyncVar]
+
+    [SyncVar(hook = nameof(SetMissionMedicText_Hook))]
     private int missionMedic;
     [SerializeField]
     private Text missionMedicText;
-    public void SetMissionMedicText(int value) {
+    public void SetMissionMedicText_Hook(int _, int value) {
         missionMedicText.text = value.ToString();
-        //missionMedicText.text = string.Format("{0}", value);
         UpdateGameRuleOverview();
     }
     public void OnMissionMedicChange(bool isPlus) {
-        missionMedic = Mathf.Clamp(missionMedic + (isPlus ? 1 : -1), 1, 3);
-        SetMissionMedicText(missionMedic);
+        if (isServer) {
+            missionMedic = Mathf.Clamp(missionMedic + (isPlus ? 1 : -1), 1, 3);
+        }
     }
-    [SyncVar]
+
+    [SyncVar(hook = nameof(SetKillTimeText_Hook))]
     private int killTime;
     [SerializeField]
     private Text killTimeText;
-    public void SetKillTimeText(int value) {
-        //killTimeText.text = value.ToString();
+    public void SetKillTimeText_Hook(int _, int value) {
         killTimeText.text = string.Format("{0}", value);
         UpdateGameRuleOverview();
     }
     public void OnKillTimeChange(bool isPlus) {
-        killTime = Mathf.Clamp(killTime + (isPlus ? 1 : -1), 2, 5);
-        SetKillTimeText(killTime);
+        if (isServer) {
+            killTime = Mathf.Clamp(killTime + (isPlus ? 1 : -1), 2, 5);
+        }
     }
     
     //À¯ºZ 11 0:38ÃÊ
-    [SyncVar(hook = nameof(SetplayerCount_Hook))]
-    private int playerCount; // À¯ºZ 11
-    public void SetplayerCount_Hook(int _, int value)
+    [SyncVar(hook = nameof(SetRolePlayerCount_Hook))]
+    private int rolePlayerCount; // À¯ºZ 11
+    public void SetRolePlayerCount_Hook(int _, int value)
     {
         UpdateGameRuleOverview();
     }
-     
+    [SyncVar(hook = nameof(SetRoleTrainTime_Hook))]
+    private int roleTrainTime; // À¯ºZ 11
+    public void SetRoleTrainTime_Hook(int _, int value) {
+        UpdateGameRuleOverview();
+    }
 
     [SerializeField]
     private Text gameRuleOverview;
@@ -68,8 +74,8 @@ public class GameRuleStore : NetworkBehaviour {
     public void UpdateGameRuleOverview() {
         var manager = NetworkManager.singleton as MafiaRoomManager;
         StringBuilder sb = new StringBuilder();
-        sb.Append($"¿­Â÷ µµÂø ½Ã°£ : {manager.trainTime}\n");
-        sb.Append($"ÃÖ´ë ÇÃ·¹ÀÌ¾î ¼ö : {playerCount}\n");  // À¯ºZ11¹ø manager.playerCount -> playerCount
+        sb.Append($"¿­Â÷ µµÂø ½Ã°£ : {roleTrainTime}\n");
+        sb.Append($"ÃÖ´ë ÇÃ·¹ÀÌ¾î ¼ö : {rolePlayerCount}\n");  // À¯ºZ11¹ø manager.playerCount -> playerCount
         sb.Append($"ÃÑ¾Ë È¹µæ ÀÓ¹« ¼ö : {missionBullet}\n");
         sb.Append($"Ä¡·á¾à È¹µæ ÀÓ¹« ¼ö : {missionMedic}\n");
         sb.Append($"Å³ ÄðÅ¸ÀÓ : {killTime}\n");
@@ -90,7 +96,8 @@ public class GameRuleStore : NetworkBehaviour {
         if (isServer) // À¯ºZ11 0:43 //¿À·ù
         {
             var manager = NetworkManager.singleton as MafiaRoomManager; //À¯ºZ 11 0:51
-            playerCount = manager.playerCount; //À¯ºZ11 0:51
+            rolePlayerCount = manager.playerCount; //À¯ºZ11 0:51
+            roleTrainTime = manager.trainTime; //À¯ºZ11 0:51
             SetDefaultGameRule(); //SetRecommendGameRule(); // ¿À·ù
         }
     }

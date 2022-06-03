@@ -10,7 +10,7 @@ public class Bullet : NetworkBehaviour {
     private Vector3 dir;
     [SyncVar]
     public int bulletSpeed;
-    void Start() => Destroy(gameObject, 5f);
+    void Start() => Destroy(gameObject, 2f);
     
     void OnTriggerEnter2D(Collider2D collision) {
         //경계 벽 충돌

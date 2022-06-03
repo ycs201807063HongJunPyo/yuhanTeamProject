@@ -47,6 +47,7 @@ public class MafiaRoomPlayer : NetworkRoomPlayer
         NetworkServer.Spawn(player, connectionToClient);
     }
 
+    /*
     [Command]
     public void CmdSetNickname(string nick)
     {
@@ -55,4 +56,5 @@ public class MafiaRoomPlayer : NetworkRoomPlayer
         Debug.Log(playerCharacter.nickname);
         //lobbyPlayerCharacter.GetComponent<PlayerMovement>().nickname = nick;
     }
+    */
 }
