@@ -43,6 +43,7 @@ public class PlayerMovement : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        shotFlag = 0;
         //카메라 조정 코드
         if (hasAuthority) {
             Camera cam = Camera.main;
@@ -55,12 +56,18 @@ public class PlayerMovement : NetworkBehaviour
 
 
     }
+    
     /*
     //이름 관련
-    [SyncVar]
+    [SyncVar(hook = nameof(SetNickname_Hook))]
     public string nickname;
     [SerializeField]
     private Text nicknameText;
+    public void SetNickname_Hook(string _, string value) {
+        //nicknameText.text = string.Format("{0}", FindObjectsOfType<MafiaRoomPlayer>().Length);
+        nicknameText.text = value;
+        Debug.Log(nicknameText.text);
+    }
 
     [Command]
     public void CmdSetNickname(string nick) {
@@ -70,11 +77,7 @@ public class PlayerMovement : NetworkBehaviour
     }
     */
     
-    public void SetNickname_Hook(string _, string value) {
-        //nicknameText.text = string.Format("{0}", FindObjectsOfType<MafiaRoomPlayer>().Length);
-        //nicknameText.text = value;
-        //Debug.Log(nicknameText.text);
-    }
+    
     void FixedUpdate()
     {
         Move();
@@ -155,7 +158,7 @@ public class PlayerMovement : NetworkBehaviour
             shotFlag = 4;
         }
         //컨트롤 나가면 총알 나감
-        if (curShotDelay > shotDelay && shotFlag != 5) {
+        if (curShotDelay > shotDelay && shotFlag > 0) {
            
             var manager = NetworkRoomManager.singleton as MafiaRoomManager;
             if (manager.mode == Mirror.NetworkManagerMode.Host) {

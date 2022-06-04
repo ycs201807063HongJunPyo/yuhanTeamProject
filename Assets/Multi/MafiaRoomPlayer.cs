@@ -19,12 +19,13 @@ public class MafiaRoomPlayer : NetworkRoomPlayer
     {
         base.Start();
         
-        /*
+        
          if (isLocalPlayer)  //isLocalPlayer
          {
-            CmdSetNickname(PlayerSetting.playerName);  // ¿À·ù nickname
-         }
-         */
+            CmdSetNickname(PlayerSetting.playerName);
+            Debug.Log(PlayerSetting.playerName);
+        }
+         
         if (isServer)
         {
             SpawnLobbyPlayerCharacter();
@@ -47,14 +48,13 @@ public class MafiaRoomPlayer : NetworkRoomPlayer
         NetworkServer.Spawn(player, connectionToClient);
     }
 
-    /*
+    
     [Command]
     public void CmdSetNickname(string nick)
     {
         nickname = nick;
-        playerCharacter.nickname = nick;
-        Debug.Log(playerCharacter.nickname);
+        //playerCharacter.nickname = nick;
         //lobbyPlayerCharacter.GetComponent<PlayerMovement>().nickname = nick;
     }
-    */
+    
 }

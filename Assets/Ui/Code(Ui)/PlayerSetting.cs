@@ -6,4 +6,5 @@ using UnityEngine.UI;
 public class PlayerSetting : MonoBehaviour
 {
     public static string playerName;
+    
 }
