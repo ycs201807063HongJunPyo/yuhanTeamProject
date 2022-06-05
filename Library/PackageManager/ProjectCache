@@ -5,7 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637892363374278251
+      ticks: 637899396488978578
     m_Hash: 3464381146
   m_LockFileStatus:
     m_FilePath: E:/unity/yuhanTeamProject/Packages/packages-lock.json
@@ -13,7 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637892363374278251
+      ticks: 637899396488978578
     m_Hash: 289899450
 m_EmbeddedPackageManifests:
   m_ManifestsStatus:
@@ -23,7 +23,7 @@ m_EmbeddedPackageManifests:
       m_ContentTrackingEnabled: 1
       m_ModificationDate:
         serializedVersion: 2
-        ticks: 637892363374268259
+        ticks: 637899396488978578
       m_Hash: 3787793263
 m_PackageAssets:
   m_Packages:
@@ -139,6 +139,7 @@ m_PackageAssets:
         - 8.0.0-pre.4
         - 8.0.0
         - 8.0.1
+        - 8.0.2
         - 9.0.0-pre.1
         compatible:
         - 5.2.0
@@ -350,6 +351,7 @@ m_PackageAssets:
         - 7.0.0-pre.3
         - 7.0.0-pre.4
         - 7.0.0
+        - 7.0.1
         - 8.0.0-pre.1
         compatible:
         - 4.3.0

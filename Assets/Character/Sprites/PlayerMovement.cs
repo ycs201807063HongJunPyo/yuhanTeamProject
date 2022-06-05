@@ -21,9 +21,7 @@ public class PlayerMovement : NetworkBehaviour
     private int shotFlag;  //방향 플래그 변수
 
     //총알 장전속도 느리게함
-    [SyncVar]
     private float shotDelay = 5;  //조준 끝(사격)
-    [SyncVar]
     private float curShotDelay = 1;  //조준 중(조준)
     public Rigidbody2D rig;
     public int shotSpeed;

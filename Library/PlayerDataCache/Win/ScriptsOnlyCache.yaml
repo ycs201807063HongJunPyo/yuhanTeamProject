@@ -534,7 +534,7 @@ ScriptsOnlyBuild:
     className: OnlineUI
   - hash:
       serializedVersion: 2
-      Hash: d4a9f1eb1bdf9d9c1eb731d031433626
+      Hash: acdbde96ab7ee15f34ecbd4042678cf5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: LobbyUIManager

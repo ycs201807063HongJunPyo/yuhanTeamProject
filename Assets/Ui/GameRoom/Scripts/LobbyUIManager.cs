@@ -13,19 +13,10 @@ public class LobbyUIManager : MonoBehaviour
     private GameRoomPlayerCounter gameRoomPlayerCounter;
     public GameRoomPlayerCounter GameRoomPlayerCounter { get { return gameRoomPlayerCounter; } }
 
-    [SerializeField]
-    private Text playerCountText;
-    public void UpdatePlayerCount()
-    {
-        var manager = NetworkManager.singleton as MafiaRoomManager;
-        var players = FindObjectsOfType<MafiaRoomPlayer>();
-        playerCountText.text = string.Format("{0} /{1}", players.Length, manager.maxConnetions);
-    }
-     
     // Start is called before the first frame update
     void Start()
     {
-        
+        Instance = this;
     }
 
     // Update is called once per frame

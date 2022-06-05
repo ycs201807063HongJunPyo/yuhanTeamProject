@@ -157,8 +157,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 100}
-  m_SizeDelta: {x: 100, y: 0}
+  m_AnchoredPosition: {x: 50, y: 0}
+  m_SizeDelta: {x: 100, y: -200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &12724451
 MonoBehaviour:
@@ -193,9 +193,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '1/5
-
-'
+  m_Text: 0
 --- !u!222 &12724452
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2239,7 +2237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  playerCountText: {fileID: 1374181206}
+  playerCountText: {fileID: 12724451}
 --- !u!4 &595273877
 Transform:
   m_ObjectHideFlags: 0
@@ -3580,7 +3578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbf9701e7c6c299419b9887532067921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameRoomPlayerCounter: {fileID: 0}
+  gameRoomPlayerCounter: {fileID: 595273876}
   playerCountText: {fileID: 1374181206}
 --- !u!1 &1109360231
 GameObject:

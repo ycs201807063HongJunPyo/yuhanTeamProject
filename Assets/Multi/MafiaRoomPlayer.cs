@@ -31,8 +31,9 @@ public class MafiaRoomPlayer : NetworkRoomPlayer
             SpawnLobbyPlayerCharacter();
         }
         
-         //플레이어 숫자 알려주기
-        //LobbyUIManager.Instance.GameRoomPlayerCounter.UpdatePlayerCount();
+        //플레이어 숫자 알려주기
+        LobbyUIManager.Instance.GameRoomPlayerCounter.UpdatePlayerCount();
+
     }
 
     private void OnDestroy()
