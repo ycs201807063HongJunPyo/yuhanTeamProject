@@ -29,3 +29,8 @@ branch63 업데이트 내용
 2022/06/04
 -최고 플레이어에 맞는 게임 접속 인구수 적용
 -메인 타이틀 적용
+==
+2022/06/27
+-networkaddress 자신의 IP 주소로 설정됨
+->MafiaRoomManager.cs에서 설정
+-임시 IP,Port 창 만들어둠

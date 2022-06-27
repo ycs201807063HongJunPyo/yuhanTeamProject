@@ -159,6 +159,7 @@ public class PlayerMovement : NetworkBehaviour
         if (curShotDelay > shotDelay && shotFlag > 0) {
            
             var manager = NetworkRoomManager.singleton as MafiaRoomManager;
+            
             if (manager.mode == Mirror.NetworkManagerMode.Host) {
                 var bullet = Instantiate(manager.spawnPrefabs[1], transform.position, transform.rotation);
                 rig = bullet.GetComponent<Rigidbody2D>();

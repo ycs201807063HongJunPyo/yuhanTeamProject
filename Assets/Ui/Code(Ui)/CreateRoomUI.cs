@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Mirror;
+using System.Net;
+using System.Net.Sockets;
 
 public class CreateRoomUI : MonoBehaviour
 {
@@ -23,9 +25,6 @@ public class CreateRoomUI : MonoBehaviour
             Material materialInstance = Instantiate(crewImgs[i].material);
             crewImgs[i].material = materialInstance;
         }
-        
-
-
         gameRoomData = new CreateGameRoomData() { escTime = 7, maxPlayerCount = 5 };
         InfestedCivCountUpdate();
     }
@@ -73,6 +72,8 @@ public class CreateRoomUI : MonoBehaviour
         manager.trainTime = gameRoomData.escTime;
         manager.playerCount = gameRoomData.maxPlayerCount;
         manager.StartHost();
+
+        
     }
 
 }

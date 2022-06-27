@@ -3579,7 +3579,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameRoomPlayerCounter: {fileID: 595273876}
-  playerCountText: {fileID: 1374181206}
 --- !u!1 &1109360231
 GameObject:
   m_ObjectHideFlags: 0
