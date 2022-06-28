@@ -528,13 +528,13 @@ ScriptsOnlyBuild:
     className: PlaymodeTestsController
   - hash:
       serializedVersion: 2
-      Hash: b4158967b809aafa0c3a37c6fa5174e1
+      Hash: cc99ba33f5e95040ae539af9506ecfa3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: OnlineUI
   - hash:
       serializedVersion: 2
-      Hash: d4a9f1eb1bdf9d9c1eb731d031433626
+      Hash: acdbde96ab7ee15f34ecbd4042678cf5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: LobbyUIManager
@@ -1050,7 +1050,7 @@ ScriptsOnlyBuild:
     className: NetworkRigidbody2D
   - hash:
       serializedVersion: 2
-      Hash: 809963ca96e41d8eb119600812f1756a
+      Hash: 00d5dbbca09b056cd827b9c427ab6a6a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMovement

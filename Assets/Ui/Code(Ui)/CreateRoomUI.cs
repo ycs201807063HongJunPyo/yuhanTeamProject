@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Mirror;
+using System.Net;
+using System.Net.Sockets;
 
 public class CreateRoomUI : MonoBehaviour
 {
@@ -15,6 +17,7 @@ public class CreateRoomUI : MonoBehaviour
 
     private CreateGameRoomData gameRoomData;
 
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -23,9 +26,6 @@ public class CreateRoomUI : MonoBehaviour
             Material materialInstance = Instantiate(crewImgs[i].material);
             crewImgs[i].material = materialInstance;
         }
-        
-
-
         gameRoomData = new CreateGameRoomData() { escTime = 7, maxPlayerCount = 5 };
         InfestedCivCountUpdate();
     }
@@ -72,7 +72,10 @@ public class CreateRoomUI : MonoBehaviour
         var manager = NetworkRoomManager.singleton as MafiaRoomManager;
         manager.trainTime = gameRoomData.escTime;
         manager.playerCount = gameRoomData.maxPlayerCount;
+        
         manager.StartHost();
+
+        
     }
 
 }

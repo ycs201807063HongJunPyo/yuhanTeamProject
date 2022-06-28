@@ -5,7 +5,11 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
+<<<<<<< HEAD
       ticks: 637896629541551095
+=======
+      ticks: 637899396488978578
+>>>>>>> c9e9f8ecaaa6533cf8822b2799ddc468a1b1e8df
     m_Hash: 3464381146
   m_LockFileStatus:
     m_FilePath: F:/edu/Project/team/yuhanTeamProject/Packages/packages-lock.json
@@ -13,7 +17,11 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
+<<<<<<< HEAD
       ticks: 637896629541551095
+=======
+      ticks: 637899396488978578
+>>>>>>> c9e9f8ecaaa6533cf8822b2799ddc468a1b1e8df
     m_Hash: 289899450
 m_EmbeddedPackageManifests:
   m_ManifestsStatus:
@@ -23,7 +31,11 @@ m_EmbeddedPackageManifests:
       m_ContentTrackingEnabled: 1
       m_ModificationDate:
         serializedVersion: 2
+<<<<<<< HEAD
         ticks: 637896629541546130
+=======
+        ticks: 637899396488978578
+>>>>>>> c9e9f8ecaaa6533cf8822b2799ddc468a1b1e8df
       m_Hash: 3787793263
 m_PackageAssets:
   m_Packages:

@@ -19,15 +19,13 @@ public class PlayerMovement : NetworkBehaviour
     //사격관련 변수
     [SyncVar]
     private int shotFlag;  //방향 플래그 변수
-    [SyncVar]
-    public int shotSpeed;
-    [SyncVar]
-    public float shotDelay;  //조준 끝(사격)
-    [SyncVar]
-    public float curShotDelay;  //조준 중(조준)
-    public Rigidbody2D rig;
 
-    
+    //총알 장전속도 느리게함
+    private float shotDelay = 5;  //조준 끝(사격)
+    private float curShotDelay = 1;  //조준 중(조준)
+    public Rigidbody2D rig;
+    public int shotSpeed;
+
 
 
 
@@ -43,6 +41,7 @@ public class PlayerMovement : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        shotFlag = 0;
         //카메라 조정 코드
         if (hasAuthority) {
             Camera cam = Camera.main;
@@ -55,11 +54,18 @@ public class PlayerMovement : NetworkBehaviour
 
 
     }
+    
+    /*
     //이름 관련
-    [SyncVar]
+    [SyncVar(hook = nameof(SetNickname_Hook))]
     public string nickname;
     [SerializeField]
     private Text nicknameText;
+    public void SetNickname_Hook(string _, string value) {
+        //nicknameText.text = string.Format("{0}", FindObjectsOfType<MafiaRoomPlayer>().Length);
+        nicknameText.text = value;
+        Debug.Log(nicknameText.text);
+    }
 
     [Command]
     public void CmdSetNickname(string nick) {
@@ -67,19 +73,15 @@ public class PlayerMovement : NetworkBehaviour
         nicknameText.text = nick;
         //lobbyPlayerCharacter.GetComponent<PlayerMovement>().nickname = nick;
     }
-
+    */
     
-    public void SetNickname_Hook(string _, string value) {
-        //nicknameText.text = string.Format("{0}", FindObjectsOfType<MafiaRoomPlayer>().Length);
-        nicknameText.text = value;
-        Debug.Log(nicknameText.text);
-    }
+    
     void FixedUpdate()
     {
         Move();
         Fire();
         AimDelay();
-        UpdateNickname();
+        //UpdateNickname();
     }
 
     // 이동 & 애니메이션 함수
@@ -153,19 +155,25 @@ public class PlayerMovement : NetworkBehaviour
             // 아래쪽
             shotFlag = 4;
         }
-
-        if (curShotDelay > shotDelay && shotFlag != 5) {
+        //컨트롤 나가면 총알 나감
+        if (curShotDelay > shotDelay && shotFlag > 0) {
            
             var manager = NetworkRoomManager.singleton as MafiaRoomManager;
-            var bullet = Instantiate(manager.spawnPrefabs[1], transform.position, transform.rotation);
-            rig = bullet.GetComponent<Rigidbody2D>();
+            
             if (manager.mode == Mirror.NetworkManagerMode.Host) {
+                var bullet = Instantiate(manager.spawnPrefabs[1], transform.position, transform.rotation);
+                rig = bullet.GetComponent<Rigidbody2D>();
+                //원래 if문 위치
                 NetworkServer.Spawn(bullet);  // 총알 스폰
                 RpcShotUpdate(GetShotFlag());
             }
+            //시연용 호스트만 총쏘기
+            /*
             else{
                 CmdShotUpdate(GetShotFlag());
             }
+            */
+            Debug.Log(shotSpeed);
             curShotDelay = 0;
         }
         else {
@@ -173,28 +181,29 @@ public class PlayerMovement : NetworkBehaviour
         }
     }
 
+    /*
     [Command(requiresAuthority = false)]
     public void CmdShotUpdate(int shotFlag) {
         RpcShotUpdate(shotFlag);
     }
-
+    */
     [ClientRpc]
     public void RpcShotUpdate(int flag) {
         
         if (flag == 1) {
-            rig.AddForce(Vector2.right * shotSpeed * Time.deltaTime, ForceMode2D.Impulse);
+            rig.AddForce(Vector2.right * shotSpeed * Time.deltaTime, ForceMode2D.Force);
             //dirBullet = Vector3.right;
         }
         else if (flag == 2) {
-            rig.AddForce(Vector2.left * shotSpeed * Time.deltaTime, ForceMode2D.Impulse);
+            rig.AddForce(Vector2.left * shotSpeed * Time.deltaTime, ForceMode2D.Force);
             //dirBullet = Vector3.left;
         }
         else if (flag == 3) {
-            rig.AddForce(Vector2.up * shotSpeed * Time.deltaTime, ForceMode2D.Impulse);
+            rig.AddForce(Vector2.up * shotSpeed * Time.deltaTime, ForceMode2D.Force);
             //dirBullet = Vector3.up;
         }
         else if (flag == 4) {
-            rig.AddForce(Vector2.down * shotSpeed * Time.deltaTime, ForceMode2D.Impulse);
+            rig.AddForce(Vector2.down * shotSpeed * Time.deltaTime, ForceMode2D.Force);
             //dirBullet = Vector3.down;
         }
 
@@ -205,6 +214,7 @@ public class PlayerMovement : NetworkBehaviour
         curShotDelay = curShotDelay + Time.deltaTime ;
     }
     
+    /*
     public void UpdateNickname() {
         //닉네임 테스트 코드
         CmdSetNickname(PlayerSetting.playerName);  // 오류 nickname
@@ -216,7 +226,7 @@ public class PlayerMovement : NetworkBehaviour
             nicknameText.transform.localScale = new Vector3(1f, 1f, 1f);
         }
     }
-    
+    */
 
     public int GetShotFlag() {
         return shotFlag;

@@ -19,19 +19,21 @@ public class MafiaRoomPlayer : NetworkRoomPlayer
     {
         base.Start();
         
-        /*
+        
          if (isLocalPlayer)  //isLocalPlayer
          {
-            CmdSetNickname(PlayerSetting.playerName);  // 오류 nickname
-         }
-         */
+            CmdSetNickname(PlayerSetting.playerName);
+            Debug.Log(PlayerSetting.playerName);
+        }
+         
         if (isServer)
         {
             SpawnLobbyPlayerCharacter();
         }
         
-         //플레이어 숫자 알려주기
-        //LobbyUIManager.Instance.GameRoomPlayerCounter.UpdatePlayerCount();
+        //플레이어 숫자 알려주기
+        LobbyUIManager.Instance.GameRoomPlayerCounter.UpdatePlayerCount();
+
     }
 
     private void OnDestroy()
@@ -47,12 +49,13 @@ public class MafiaRoomPlayer : NetworkRoomPlayer
         NetworkServer.Spawn(player, connectionToClient);
     }
 
+    
     [Command]
     public void CmdSetNickname(string nick)
     {
         nickname = nick;
-        playerCharacter.nickname = nick;
-        Debug.Log(playerCharacter.nickname);
+        //playerCharacter.nickname = nick;
         //lobbyPlayerCharacter.GetComponent<PlayerMovement>().nickname = nick;
     }
+    
 }

@@ -7,8 +7,6 @@ using Mirror;
 public class GameRoomPlayerCounter : NetworkBehaviour
 {
     [SyncVar]
-    private int minPlayer;
-    [SyncVar]
     private int maxPlayer;
 
     [SerializeField]
@@ -16,11 +14,11 @@ public class GameRoomPlayerCounter : NetworkBehaviour
 
     public void UpdatePlayerCount()
     {
-        // var manager = NetworkManager.singleton as MafiaRoomManager;
         var players = FindObjectsOfType<MafiaRoomPlayer>();
-        bool isStartable = players.Length >= minPlayer;
+        var manager = NetworkRoomManager.singleton as MafiaRoomManager;
+        bool isStartable = players.Length >= 3;
         playerCountText.color = isStartable ? Color.white : Color.red;
-        playerCountText.text = string.Format("{0} /{1}", players.Length, maxPlayer);
+        playerCountText.text = string.Format("{0} / {1} \n{2}", players.Length, maxPlayer, manager.networkAddress);
     }
 
     // Start is called before the first frame update
@@ -29,7 +27,6 @@ public class GameRoomPlayerCounter : NetworkBehaviour
         if (isServer)
         {
             var manager = NetworkManager.singleton as MafiaRoomManager;
-            //minPlayer = manager.minPlayerCount;
             maxPlayer = manager.maxConnections;
         }
     }
