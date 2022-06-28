@@ -139,6 +139,7 @@ m_PackageAssets:
         - 8.0.0-pre.4
         - 8.0.0
         - 8.0.1
+        - 8.0.2
         - 9.0.0-pre.1
         compatible:
         - 5.2.0
@@ -350,6 +351,7 @@ m_PackageAssets:
         - 7.0.0-pre.3
         - 7.0.0-pre.4
         - 7.0.0
+        - 7.0.1
         - 8.0.0-pre.1
         compatible:
         - 4.3.0
