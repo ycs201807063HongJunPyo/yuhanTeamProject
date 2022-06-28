@@ -2563,6 +2563,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNameInputField: {fileID: 6905399}
   createRoomGameUI: {fileID: 174966603}
+  textIp: {fileID: 926922085}
 --- !u!1 &803577769
 GameObject:
   m_ObjectHideFlags: 0

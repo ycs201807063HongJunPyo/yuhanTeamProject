@@ -17,6 +17,7 @@ public class CreateRoomUI : MonoBehaviour
 
     private CreateGameRoomData gameRoomData;
 
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -71,6 +72,7 @@ public class CreateRoomUI : MonoBehaviour
         var manager = NetworkRoomManager.singleton as MafiaRoomManager;
         manager.trainTime = gameRoomData.escTime;
         manager.playerCount = gameRoomData.maxPlayerCount;
+        
         manager.StartHost();
 
         

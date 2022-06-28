@@ -528,7 +528,7 @@ ScriptsOnlyBuild:
     className: PlaymodeTestsController
   - hash:
       serializedVersion: 2
-      Hash: b4158967b809aafa0c3a37c6fa5174e1
+      Hash: cc99ba33f5e95040ae539af9506ecfa3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: OnlineUI

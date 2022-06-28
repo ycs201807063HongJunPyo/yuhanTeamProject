@@ -34,3 +34,8 @@ branch63 업데이트 내용
 -networkaddress 자신의 IP 주소로 설정됨
 ->MafiaRoomManager.cs에서 설정
 -임시 IP,Port 창 만들어둠
+==
+2022/06/28
+-빌드창에서 IP 입력해서 접속가능
+->다른컴에서 되는지 실험해봐야함
+->Port는 7777고정, 나중에 고치기
