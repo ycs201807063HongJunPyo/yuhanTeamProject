@@ -26,11 +26,8 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
-    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
-    - UnityEditor.Tilemaps.GridPaletteBrushes
-    - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.SceneViewOpenTilePaletteHelper
     - UnityEditor.Tilemaps.TileDragAndDropManager
@@ -185,6 +182,10 @@ ScriptsOnlyBuild:
     - Class: 81
       Script: {instanceID: 0}
     - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 3384}
+    - Class: 115
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -534,7 +535,7 @@ ScriptsOnlyBuild:
     className: OnlineUI
   - hash:
       serializedVersion: 2
-      Hash: acdbde96ab7ee15f34ecbd4042678cf5
+      Hash: c79aeb2d125d950896cfe68ea85b23d4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: LobbyUIManager
@@ -1995,4 +1996,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/MainMenuScene.unity
   - Assets/Scenes/GameWaiting Room.unity
   - Assets/Scenes/Gameplay Scene.unity
-  playerPath: E:/unity/yuhanTeamProject/Build/ycsUnityTeamProject.exe
+  playerPath: C:/Users/User/Desktop/git/yuhanTeamProject/Build/ycsUnityTeamProject.exe
