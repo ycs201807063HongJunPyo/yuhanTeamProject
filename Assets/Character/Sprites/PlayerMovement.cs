@@ -26,6 +26,17 @@ public class PlayerMovement : NetworkBehaviour
     public Rigidbody2D rig;
     public int shotSpeed;
 
+    [SyncVar(hook = nameof(SetOwnerNetId_Hook))]
+    public uint ownerNetId;
+    public void SetOwnerNetId_Hook(uint _, uint newOwnerId) {
+        var players = FindObjectsOfType<MafiaRoomPlayer>();
+        foreach(var player in players) {
+            if(newOwnerId == player.netId) {
+                player.playerCharacter = this;
+                break;
+            }
+        }
+    }
     void Awake()
     {
         anim = GetComponent<Animator>();
@@ -45,8 +56,8 @@ public class PlayerMovement : NetworkBehaviour
             cam.transform.localPosition = new Vector3(0f, 0f, -10f);
             cam.orthographicSize = 2.5f;
         }
+        
 
-     
     }
 
     [SyncVar(hook = nameof(SetNickname_Hook))]
@@ -55,7 +66,7 @@ public class PlayerMovement : NetworkBehaviour
     private Text nicknameText;
     public void SetNickname_Hook(string _, string value) {
         nicknameText.text = value;
-        Debug.Log(nicknameText.text + "Player");
+        Debug.Log(nicknameText.text + " Player훅으로 오는 value값");
     }
 
     void FixedUpdate()
