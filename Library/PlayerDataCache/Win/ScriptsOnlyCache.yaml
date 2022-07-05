@@ -205,6 +205,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 50
       Script: {instanceID: 0}
+    - Class: 58
+      Script: {instanceID: 0}
     - Class: 61
       Script: {instanceID: 0}
     - Class: 74
@@ -1050,7 +1052,7 @@ ScriptsOnlyBuild:
     className: NetworkRigidbody2D
   - hash:
       serializedVersion: 2
-      Hash: 00d5dbbca09b056cd827b9c427ab6a6a
+      Hash: 0037b1d309ae61465ccd97f74127a022
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMovement
@@ -1995,4 +1997,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/MainMenuScene.unity
   - Assets/Scenes/GameWaiting Room.unity
   - Assets/Scenes/Gameplay Scene.unity
-  playerPath: E:/unity/yuhanTeamProject/Build/ycsUnityTeamProject.exe
+  playerPath: F:/edu/Project/team/yuhanTeamProject/Build/ycsUnityTeamProject.exe

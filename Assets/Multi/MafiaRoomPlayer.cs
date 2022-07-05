@@ -12,9 +12,7 @@ public class MafiaRoomPlayer : NetworkRoomPlayer
 
     public PlayerMovement playerCharacter;
 
-    
-
-    //À¯ºZ11 1:52 ¿¡·¯
+    //ï¿½ï¿½ï¿½Z11 1:52 ï¿½ï¿½ï¿½ï¿½
     public new void Start()
     {
         base.Start();
@@ -31,7 +29,7 @@ public class MafiaRoomPlayer : NetworkRoomPlayer
             SpawnLobbyPlayerCharacter();
         }
         
-        //ÇÃ·¹ÀÌ¾î ¼ýÀÚ ¾Ë·ÁÁÖ±â
+        //ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë·ï¿½ï¿½Ö±ï¿½
         LobbyUIManager.Instance.GameRoomPlayerCounter.UpdatePlayerCount();
 
     }

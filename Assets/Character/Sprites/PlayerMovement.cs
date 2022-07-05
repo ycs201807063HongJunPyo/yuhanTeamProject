@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class PlayerMovement : NetworkBehaviour
 {
     //이동관련 변수
-    
     private float moveX;
     private float moveY;
     private Animator anim;  // 애니메이션 관련 정보
@@ -21,27 +20,27 @@ public class PlayerMovement : NetworkBehaviour
     private int shotFlag;  //방향 플래그 변수
 
     //총알 장전속도 느리게함
-    private float shotDelay = 5;  //조준 끝(사격)
-    private float curShotDelay = 1;  //조준 중(조준)
+    private float shotDelay;  //조준 끝(사격)
+    private float curShotDelay;  //조준 중(조준)
     public Rigidbody2D rig;
-    public int shotSpeed;
+    private int shotSpeed;  // 총알 속도 조정
 
-
-
-
+    private int hp; // 플레이어 체력
 
     void Awake()
     {
         anim = GetComponent<Animator>();
     }
 
-    
-    
-
     // Start is called before the first frame update
     void Start()
     {
         shotFlag = 0;
+        shotDelay = 5;
+        curShotDelay = 1;
+        shotSpeed = 60000;
+        hp = 4;
+
         //카메라 조정 코드
         if (hasAuthority) {
             Camera cam = Camera.main;
@@ -49,10 +48,6 @@ public class PlayerMovement : NetworkBehaviour
             cam.transform.localPosition = new Vector3(0f, 0f, -10f);
             cam.orthographicSize = 2.5f;
         }
-
-        
-
-
     }
     
     /*
@@ -74,7 +69,6 @@ public class PlayerMovement : NetworkBehaviour
         //lobbyPlayerCharacter.GetComponent<PlayerMovement>().nickname = nick;
     }
     */
-    
     
     void FixedUpdate()
     {
@@ -137,7 +131,10 @@ public class PlayerMovement : NetworkBehaviour
     //사격 함수
     void Fire() {
         //보는 방향이 정확하지 못함(너무 세세하게 shotFlag가 수정되서), 버튼을 천천하고 정확히 1개씩만 눌러서 방향 확인해야함(일단 나가는거에 의의맞춤)
-        //누르면 쏘게하기 Input.GetButton("Fire1")
+        
+        ///누르면 쏘게하기
+        //Input.GetButton("Fire1")
+
         // 총알 발사 방향
         if (moveX > 0 && moveY == 0) {
             // 오른쪽
@@ -231,6 +228,13 @@ public class PlayerMovement : NetworkBehaviour
     public int GetShotFlag() {
         return shotFlag;
     }
+
+    // rigidBody 가 무언가와 충돌할 때 호출되는 함수
+    void OnTriggerEnter2D(Collider2D other) { // Collider2D other 로 부딪힌 객체를 받아옴
+        if(other.tag == "Bullet"){  // 곂친 상대의 태그가 Bullet 인 경우 처리
+            hp -= 1;
+        }
+        Debug.Log(name + " : " + hp);
+    }
+
 }
-
-
