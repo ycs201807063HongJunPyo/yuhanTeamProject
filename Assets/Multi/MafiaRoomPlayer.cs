@@ -29,6 +29,8 @@ public class MafiaRoomPlayer : NetworkRoomPlayer
         if (isServer)
         {
             SpawnLobbyPlayerCharacter();
+            // 서버 역활을 해주는 경우에만 호출 가능하도록 만듬, 11장 8:11
+            LobbyUIManager.Instance.ActiveStartButton();
         }
         
         //플레이어 숫자 알려주기
