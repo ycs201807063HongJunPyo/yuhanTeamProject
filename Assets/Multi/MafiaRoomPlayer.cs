@@ -8,8 +8,6 @@ public class MafiaRoomPlayer : NetworkRoomPlayer
     [SyncVar]
     public string nickname;
 
-    public GameObject lobbyPlayerCharacter;
-
     public PlayerMovement playerCharacter;
 
     
@@ -23,7 +21,7 @@ public class MafiaRoomPlayer : NetworkRoomPlayer
          if (isLocalPlayer)  //isLocalPlayer
          {
             CmdSetNickname(PlayerSetting.playerName);
-            Debug.Log(PlayerSetting.playerName);
+            Debug.Log(PlayerSetting.playerName + "isLocal");
         }
          
         if (isServer)
@@ -31,6 +29,7 @@ public class MafiaRoomPlayer : NetworkRoomPlayer
             SpawnLobbyPlayerCharacter();
             // 서버 역활을 해주는 경우에만 호출 가능하도록 만듬, 11장 8:11
             LobbyUIManager.Instance.ActiveStartButton();
+            Debug.Log(PlayerSetting.playerName + "isServer");
         }
         
         //플레이어 숫자 알려주기
@@ -52,12 +51,12 @@ public class MafiaRoomPlayer : NetworkRoomPlayer
     }
 
     
-    [Command]
+    [Command(requiresAuthority = false)]
     public void CmdSetNickname(string nick)
     {
         nickname = nick;
-        //playerCharacter.nickname = nick;
-        //lobbyPlayerCharacter.GetComponent<PlayerMovement>().nickname = nick;
+        playerCharacter.nickname = nick;
+        
     }
     
 }
