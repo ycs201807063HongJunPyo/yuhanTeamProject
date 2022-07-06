@@ -6,6 +6,8 @@ using Mirror;
 
 public class GameRoomPlayerCounter : NetworkBehaviour
 {
+    
+
     [SyncVar]
     private int maxPlayer;
 
