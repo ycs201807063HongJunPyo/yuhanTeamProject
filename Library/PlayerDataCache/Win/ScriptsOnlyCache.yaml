@@ -26,7 +26,6 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
-    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
@@ -185,6 +184,10 @@ ScriptsOnlyBuild:
     - Class: 81
       Script: {instanceID: 0}
     - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 3384}
+    - Class: 115
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -536,7 +539,7 @@ ScriptsOnlyBuild:
     className: OnlineUI
   - hash:
       serializedVersion: 2
-      Hash: acdbde96ab7ee15f34ecbd4042678cf5
+      Hash: c79aeb2d125d950896cfe68ea85b23d4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: LobbyUIManager
@@ -1052,7 +1055,7 @@ ScriptsOnlyBuild:
     className: NetworkRigidbody2D
   - hash:
       serializedVersion: 2
-      Hash: 0037b1d309ae61465ccd97f74127a022
+      Hash: b1c6593a8fbcafb977f0f6f34bc601fa
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMovement

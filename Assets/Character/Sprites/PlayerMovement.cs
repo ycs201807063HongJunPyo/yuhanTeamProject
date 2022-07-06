@@ -50,26 +50,6 @@ public class PlayerMovement : NetworkBehaviour
         }
     }
     
-    /*
-    //이름 관련
-    [SyncVar(hook = nameof(SetNickname_Hook))]
-    public string nickname;
-    [SerializeField]
-    private Text nicknameText;
-    public void SetNickname_Hook(string _, string value) {
-        //nicknameText.text = string.Format("{0}", FindObjectsOfType<MafiaRoomPlayer>().Length);
-        nicknameText.text = value;
-        Debug.Log(nicknameText.text);
-    }
-
-    [Command]
-    public void CmdSetNickname(string nick) {
-        nickname = nick;
-        nicknameText.text = nick;
-        //lobbyPlayerCharacter.GetComponent<PlayerMovement>().nickname = nick;
-    }
-    */
-    
     void FixedUpdate()
     {
         Move();
@@ -114,8 +94,8 @@ public class PlayerMovement : NetworkBehaviour
             // 애니메이션 세팅 끝
         }
         
-        /*
-        //유튭 11 6:26
+        
+        // 닉네임 방향전환
         if (transform.localScale.x < 0)
         {
             nicknameText.transform.localScale = new Vector3(-1f, 1f, 1f);
@@ -124,8 +104,6 @@ public class PlayerMovement : NetworkBehaviour
         {
             nicknameText.transform.localScale = new Vector3(1f, 1f, 1f);
         }
-        // 6:26 여기까지
-        */
     }
 
     //사격 함수
@@ -234,7 +212,29 @@ public class PlayerMovement : NetworkBehaviour
         if(other.tag == "Bullet"){  // 곂친 상대의 태그가 Bullet 인 경우 처리
             hp -= 1;
         }
-        Debug.Log(name + " : " + hp);
+        Debug.Log(nicknameText.text + " : " + hp);
     }
+
+    //이름 관련
+    [SyncVar(hook = "SetNickname_Hook")]
+    public string nickname;
+    [SerializeField]
+    private Text nicknameText;
+    public void SetNickname_Hook(string _, string value) {
+        //nicknameText.text = string.Format("{0}", FindObjectsOfType<MafiaRoomPlayer>().Length);
+        nicknameText.text = value;
+        Debug.Log("Main : " + nicknameText.text);
+        Debug.Log("value : " + value);
+        Debug.Log("nickname : " + nickname);
+    }
+
+/*
+    [Command]
+    public void CmdSetNickname(string nick) {
+        nickname = nick;
+        nicknameText.text = nick;
+        //lobbyPlayerCharacter.GetComponent<PlayerMovement>().nickname = nick;
+    }
+*/  
 
 }

@@ -13,20 +13,22 @@ public class MafiaRoomPlayer : NetworkRoomPlayer
     public PlayerMovement playerCharacter;
 
     //���Z11 1:52 ����
-    public new void Start()
+    public void Start()
     {
         base.Start();
         
         
          if (isLocalPlayer)  //isLocalPlayer
-         {
+        {
             CmdSetNickname(PlayerSetting.playerName);
-            Debug.Log(PlayerSetting.playerName);
+            Debug.Log("Mafia : " + PlayerSetting.playerName);
         }
          
         if (isServer)
         {
             SpawnLobbyPlayerCharacter();
+            // ���� ��Ȱ�� ���ִ� ��쿡�� ȣ�� �����ϵ��� ����, 11�� 8:11
+            LobbyUIManager.Instance.ActiveStartButton();
         }
         
         //�÷��̾� ���� �˷��ֱ�
@@ -52,8 +54,7 @@ public class MafiaRoomPlayer : NetworkRoomPlayer
     public void CmdSetNickname(string nick)
     {
         nickname = nick;
-        //playerCharacter.nickname = nick;
+        playerCharacter.nickname = nick;
         //lobbyPlayerCharacter.GetComponent<PlayerMovement>().nickname = nick;
     }
-    
 }
