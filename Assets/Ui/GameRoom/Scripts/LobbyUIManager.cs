@@ -15,6 +15,8 @@ public class LobbyUIManager : MonoBehaviour
 
     [SerializeField]
     private Button startButton; //11장 7:44
+    [SerializeField]
+    private Button settingButton;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +28,10 @@ public class LobbyUIManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void ActiveSettingButton() {
+        settingButton.gameObject.SetActive(true);  // start버튼을 보여주는 함수 활성화
     }
 
     // 11장

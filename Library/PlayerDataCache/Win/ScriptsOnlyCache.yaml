@@ -539,7 +539,7 @@ ScriptsOnlyBuild:
     className: OnlineUI
   - hash:
       serializedVersion: 2
-      Hash: c79aeb2d125d950896cfe68ea85b23d4
+      Hash: 9e645c7cdbb69e02dcc6211e49d478b2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: LobbyUIManager
@@ -821,7 +821,7 @@ ScriptsOnlyBuild:
     className: RandomColor
   - hash:
       serializedVersion: 2
-      Hash: 8d3d00febc94a4151d553fe7fab9ea07
+      Hash: 031c5b57c31974a74ab93a030ce9222e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameRoomPlayerCounter
