@@ -5,7 +5,7 @@ using Mirror;
 
 public class MafiaRoomPlayer : NetworkRoomPlayer
 {
-    //ÇÃ·¹ÀÌ¾î ¹øÈ£ °¡Á®¿À´Â°Å°°Àºµ¥ »ç°İÇÒ¶§ ¾µ¼öÀÖÀ»µí
+    //í”Œë ˆì´ì–´ ë²ˆí˜¸ ê°€ì ¸ì˜¤ëŠ”ê±°ê°™ì€ë° ì‚¬ê²©í• ë•Œ ì“¸ìˆ˜ìˆì„ë“¯
     private static MafiaRoomPlayer myRoomPlayer;
     public static MafiaRoomPlayer MyRoomPlayer {
         get {
@@ -26,18 +26,17 @@ public class MafiaRoomPlayer : NetworkRoomPlayer
 
     public PlayerMovement playerCharacter;
 
-    //À¯ºZ11 1:52 ¿¡·¯
+    //11ì¥ 1:52 ì—ëŸ¬
     public new void Start()
     {
         base.Start();
-        //isServer°¡ À§¿¡¿À¸é Ã¹¹øÂ° ¾ÃÈ÷°í ´ÙÀ½ºÎÅÍ
-        //isLocalÀÌ À§¿¡¿À¸é µÎ¹øÂ° ¾ÃÈ÷°í ´ÙÀ½ºÎÅÍ
-        ///SpawnLobbyPlayerCharacterÀÌ°É·Î Ä³¸¯ÅÍ ¸¸µé¾îÁÖ´Âµ¥ ´Ğ³×ÀÓ ¼³Á¤ Àü¿¡ ¸¸µé¾îÁà¼­ °è¼Ó ¹Ğ¸®´Â°Í°°Àºµ¥ ±×·¸´Ù°í CmdSetNicknameÀ§¿¡µÎ¸é µÎ¹øÂ°°¡ ¾ÃÈû
-
+        //isServerê°€ ìœ„ì—ì˜¤ë©´ ì²«ë²ˆì§¸ ì”¹íˆê³  ë‹¤ìŒë¶€í„°
+        //isLocalì´ ìœ„ì—ì˜¤ë©´ ë‘ë²ˆì§¸ ì”¹íˆê³  ë‹¤ìŒë¶€í„°
+        ///SpawnLobbyPlayerCharacterì´ê±¸ë¡œ ìºë¦­í„° ë§Œë“¤ì–´ì£¼ëŠ”ë° ë‹‰ë„¤ì„ ì„¤ì • ì „ì— ë§Œë“¤ì–´ì¤˜ì„œ ê³„ì† ë°€ë¦¬ëŠ”ê²ƒê°™ì€ë° ê·¸ë ‡ë‹¤ê³  CmdSetNicknameìœ„ì—ë‘ë©´ ë‘ë²ˆì§¸ê°€ ì”¹í˜
         if (isServer)
         {
             SpawnLobbyPlayerCharacter();
-            LobbyUIManager.Instance.ActiveStartButton();  // ¼­¹ö ¿ªÈ°À» ÇØÁÖ´Â °æ¿ì¿¡¸¸ È£Ãâ °¡´ÉÇÏµµ·Ï ¸¸µë, 11Àå 8:11
+            LobbyUIManager.Instance.ActiveStartButton();  // ì„œë²„ ì—­í™œì„ í•´ì£¼ëŠ” ê²½ìš°ì—ë§Œ í˜¸ì¶œ ê°€ëŠ¥í•˜ë„ë¡ ë§Œë“¬, 11ì¥ 8:11
             LobbyUIManager.Instance.ActiveSettingButton();
         }
 
@@ -47,9 +46,8 @@ public class MafiaRoomPlayer : NetworkRoomPlayer
 
         }
 
-        //ÇÃ·¹ÀÌ¾î ¼ıÀÚ ¾Ë·ÁÁÖ±â
+        //í”Œë ˆì´ì–´ ìˆ«ì ì•Œë ¤ì£¼ê¸°
         LobbyUIManager.Instance.GameRoomPlayerCounter.UpdatePlayerCount();
-
     }
 
     private void OnDestroy()

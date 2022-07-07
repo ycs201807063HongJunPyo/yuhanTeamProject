@@ -26,7 +26,6 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
-    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
@@ -208,6 +207,8 @@ ScriptsOnlyBuild:
     - Class: 48
       Script: {instanceID: 0}
     - Class: 50
+      Script: {instanceID: 0}
+    - Class: 58
       Script: {instanceID: 0}
     - Class: 61
       Script: {instanceID: 0}
@@ -694,7 +695,7 @@ ScriptsOnlyBuild:
     className: TestResultRendererCallback
   - hash:
       serializedVersion: 2
-      Hash: 30480bb0a6116e4fda3de81cf876c4f4
+      Hash: 6096c13b7bb8e784c083f42051004ebc
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Bullet
@@ -1054,7 +1055,7 @@ ScriptsOnlyBuild:
     className: NetworkRigidbody2D
   - hash:
       serializedVersion: 2
-      Hash: 7aafeef004a016685a930a87c4fb102e
+      Hash: b5c6bfbc3fb3054bbd256215f8139f4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMovement
@@ -1999,4 +2000,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/MainMenuScene.unity
   - Assets/Scenes/GameWaiting Room.unity
   - Assets/Scenes/Gameplay Scene.unity
-  playerPath: E:/unity/yuhanTeamProject/Build/ycsUnityTeamProject.exe
+  playerPath: F:/edu/Project/team/yuhanTeamProject/Build/ycsUnityTeamProject.exe

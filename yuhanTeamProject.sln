@@ -1,4 +1,68 @@
 ﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWebTransport", "SimpleWebTransport.csproj", "{1bded841-e68e-c6a3-48a8-a2fd00d0297e}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirror.Examples", "Mirror.Examples.csproj", "{b5c1228f-41e1-639d-3989-39472450007a}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirror", "Mirror.csproj", "{fed3452c-5f22-1fff-4379-ec072a75967c}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirror.Components", "Mirror.Components.csproj", "{a799c068-b382-60a5-d03f-bd0c8e597909}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telepathy", "Telepathy.csproj", "{74bbda85-abf5-75cb-a35b-a3848a97393c}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{5a7017cf-a7a2-8a05-5b46-af1c5568e9f8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kcp2k", "kcp2k.csproj", "{11f5331a-6ae1-c8a1-8b0a-4fcbf6519eaa}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "where-allocations", "where-allocations.csproj", "{54ef8467-13e0-4a6a-1324-caebd5e3d577}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirror.Authenticators", "Mirror.Authenticators.csproj", "{f55e1555-16f5-6e72-e272-76538248182b}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Mirror.CodeGen", "Unity.Mirror.CodeGen.csproj", "{0e01df4a-3636-f3cc-955a-d80750f96ccf}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirror.Editor", "Mirror.Editor.csproj", "{8a74e5c9-e217-99c4-4528-c966e76c5cc8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirror.CompilerSymbols", "Mirror.CompilerSymbols.csproj", "{765440b7-3e84-d417-b73a-e20268d87e0a}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1bded841-e68e-c6a3-48a8-a2fd00d0297e}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1bded841-e68e-c6a3-48a8-a2fd00d0297e}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{b5c1228f-41e1-639d-3989-39472450007a}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{b5c1228f-41e1-639d-3989-39472450007a}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{fed3452c-5f22-1fff-4379-ec072a75967c}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{fed3452c-5f22-1fff-4379-ec072a75967c}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{a799c068-b382-60a5-d03f-bd0c8e597909}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{a799c068-b382-60a5-d03f-bd0c8e597909}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74bbda85-abf5-75cb-a35b-a3848a97393c}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74bbda85-abf5-75cb-a35b-a3848a97393c}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5a7017cf-a7a2-8a05-5b46-af1c5568e9f8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5a7017cf-a7a2-8a05-5b46-af1c5568e9f8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11f5331a-6ae1-c8a1-8b0a-4fcbf6519eaa}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11f5331a-6ae1-c8a1-8b0a-4fcbf6519eaa}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54ef8467-13e0-4a6a-1324-caebd5e3d577}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54ef8467-13e0-4a6a-1324-caebd5e3d577}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{f55e1555-16f5-6e72-e272-76538248182b}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{f55e1555-16f5-6e72-e272-76538248182b}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0e01df4a-3636-f3cc-955a-d80750f96ccf}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0e01df4a-3636-f3cc-955a-d80750f96ccf}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8a74e5c9-e217-99c4-4528-c966e76c5cc8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8a74e5c9-e217-99c4-4528-c966e76c5cc8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{765440b7-3e84-d417-b73a-e20268d87e0a}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{765440b7-3e84-d417-b73a-e20268d87e0a}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
+<<<<<<< HEAD
+=======
+=======
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWebTransport", "SimpleWebTransport.csproj", "{41D8DE1B-8EE6-A3C6-48A8-A2FD00D0297E}"
@@ -102,3 +166,5 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
+>>>>>>> c9e9f8ecaaa6533cf8822b2799ddc468a1b1e8df
+>>>>>>> branch63

@@ -10,12 +10,25 @@ public class Bullet : NetworkBehaviour {
     private Vector3 dir;
     [SyncVar]
     public int bulletSpeed;
+
+    public uint attacker;
+
     void Start() => Destroy(gameObject, 2f);
     
     void OnTriggerEnter2D(Collider2D collision) {
-        //∞Ê∞Ë ∫Æ √Êµπ
         if(collision.gameObject.tag == "LimitLine") {
             Destroy(gameObject);
+        }
+        if(collision.tag == "Player"){
+            var roomSlots = (NetworkManager.singleton as MafiaRoomManager).roomSlots;
+            foreach(var roomPlayer in roomSlots){
+                var mafiaRoomPlayer = roomPlayer as MafiaRoomPlayer;
+                /*
+                // ÎèôÏùºÍ∞í
+                Debug.Log("mafiaRoomPlayer : " + mafiaRoomPlayer.netId);
+                Debug.Log("roomPlayer : " + roomPlayer.netId);
+                */
+            }
         }
     }
 }

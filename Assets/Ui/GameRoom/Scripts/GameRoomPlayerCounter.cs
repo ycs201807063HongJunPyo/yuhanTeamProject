@@ -21,7 +21,7 @@ public class GameRoomPlayerCounter : NetworkBehaviour
         bool isStartable = players.Length >= 3;
         playerCountText.color = isStartable ? Color.white : Color.red;
         playerCountText.text = string.Format("{0} / {1}", players.Length, maxPlayer);
-        // ÇöÀç Á¢¼ÓÇÑ ÀÎ¿øÀÇ ¼ö°¡ ÃÖ¼Ò ÀÎ¿øÀÌ»óÀÇ °æ¿ì¿¡ µû¶ó È£Ãâ °¡´ÉÇÏ°Ô ÇØÁØ´Ù, 11Àå 8:20
+         // í˜„ì¬ ì ‘ì†í•œ ì¸ì›ì˜ ìˆ˜ê°€ ìµœì†Œ ì¸ì›ì´ìƒì˜ ê²½ìš°ì— ë”°ë¼ í˜¸ì¶œ ê°€ëŠ¥í•˜ê²Œ í•´ì¤€ë‹¤, 11ì¥ 8:20
         LobbyUIManager.Instance.SetInteractableStartButton(isStartable);
     }
 
