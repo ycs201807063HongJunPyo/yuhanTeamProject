@@ -6,10 +6,12 @@ using UnityEngine.UI;
 
 public class PlayerMovement : NetworkBehaviour
 {
+    public Rigidbody2D rig;
+    private Animator anim;  // 애니메이션 관련 정보
+
     //이동관련 변수
     private float moveX;
     private float moveY;
-    private Animator anim;  // 애니메이션 관련 정보
     public bool isMoving;  //이동 가능한지 확인
 
     [SyncVar]
@@ -19,13 +21,37 @@ public class PlayerMovement : NetworkBehaviour
     [SyncVar]
     private int shotFlag;  //방향 플래그 변수
 
+    private GameObject bullet;
+    public GameObject BulletPrefab;
+
     //총알 장전속도 느리게함
     private float shotDelay;  //조준 끝(사격)
     private float curShotDelay;  //조준 중(조준)
-    public Rigidbody2D rig;
     private int shotSpeed;  // 총알 속도 조정
+    
+    public int hp; // 플레이어 체력
 
-    private int hp; // 플레이어 체력
+    // 이름 관련
+    [SyncVar(hook = nameof(SetOwnerNetId_Hook))]
+    public uint ownerNetId;
+    public void SetOwnerNetId_Hook(uint _, uint newOwnerId) {
+        var players = FindObjectsOfType<MafiaRoomPlayer>();
+        foreach(var player in players) {
+            if(newOwnerId == player.netId) {
+                player.playerCharacter = this;
+                break;
+            }
+        }
+    }
+
+    [SyncVar(hook = nameof(SetNickname_Hook))]
+    public string nickname;
+    [SerializeField]
+    private Text nicknameText;
+    public void SetNickname_Hook(string _, string value) {
+        nicknameText.text = value;
+        Debug.Log(nicknameText.text + " Player훅으로 오는 value값");
+    }
 
     void Awake()
     {
@@ -49,13 +75,12 @@ public class PlayerMovement : NetworkBehaviour
             cam.orthographicSize = 2.5f;
         }
     }
-    
+
     void FixedUpdate()
     {
         Move();
         Fire();
         AimDelay();
-        //UpdateNickname();
     }
 
     // 이동 & 애니메이션 함수
@@ -92,8 +117,7 @@ public class PlayerMovement : NetworkBehaviour
                 anim.SetBool("isChange", false);
             }
             // 애니메이션 세팅 끝
-        }
-        
+        }        
         
         // 닉네임 방향전환
         if (transform.localScale.x < 0)
@@ -103,7 +127,7 @@ public class PlayerMovement : NetworkBehaviour
         else if (transform.localScale.x > 0)
         {
             nicknameText.transform.localScale = new Vector3(1f, 1f, 1f);
-        }
+        }        
     }
 
     //사격 함수
@@ -130,40 +154,40 @@ public class PlayerMovement : NetworkBehaviour
             // 아래쪽
             shotFlag = 4;
         }
+
         //컨트롤 나가면 총알 나감
         if (curShotDelay > shotDelay && shotFlag > 0) {
            
             var manager = NetworkRoomManager.singleton as MafiaRoomManager;
-            
+            //var bullet = Instantiate(manager.spawnPrefabs[1], transform.position, transform.rotation);
+
             if (manager.mode == Mirror.NetworkManagerMode.Host) {
-                var bullet = Instantiate(manager.spawnPrefabs[1], transform.position, transform.rotation);
-                rig = bullet.GetComponent<Rigidbody2D>();
-                //원래 if문 위치
-                NetworkServer.Spawn(bullet);  // 총알 스폰
-                RpcShotUpdate(GetShotFlag());
-            }
-            //시연용 호스트만 총쏘기
-            /*
+                RpcShotUpdate(GetShotFlag(), 1);
+            }            
             else{
                 CmdShotUpdate(GetShotFlag());
             }
-            */
-            Debug.Log(shotSpeed);
+            
             curShotDelay = 0;
         }
         else {
             return;
         }
     }
-
-    /*
+    
     [Command(requiresAuthority = false)]
     public void CmdShotUpdate(int shotFlag) {
-        RpcShotUpdate(shotFlag);
+        RpcShotUpdate(shotFlag, 0);
     }
-    */
+    
     [ClientRpc]
-    public void RpcShotUpdate(int flag) {
+    public void RpcShotUpdate(int flag, int check) {
+
+        bullet = Instantiate(BulletPrefab, transform.position, transform.rotation);
+        rig = bullet.GetComponent<Rigidbody2D>();
+        if(check == 1){ // 호스트에서 전달받은 값만 처리
+            NetworkServer.Spawn(bullet);  // 총알 스폰
+        }
         
         if (flag == 1) {
             rig.AddForce(Vector2.right * shotSpeed * Time.deltaTime, ForceMode2D.Force);
@@ -181,27 +205,12 @@ public class PlayerMovement : NetworkBehaviour
             rig.AddForce(Vector2.down * shotSpeed * Time.deltaTime, ForceMode2D.Force);
             //dirBullet = Vector3.down;
         }
-
     }
 
     //사격 재장전 함수
     void AimDelay() {
         curShotDelay = curShotDelay + Time.deltaTime ;
     }
-    
-    /*
-    public void UpdateNickname() {
-        //닉네임 테스트 코드
-        CmdSetNickname(PlayerSetting.playerName);  // 오류 nickname
-        Debug.Log(PlayerSetting.playerName);
-        if (transform.localScale.x < 0) {
-            nicknameText.transform.localScale = new Vector3(-1f, 1f, 1f);
-        }
-        else if (transform.localScale.x > 0) {
-            nicknameText.transform.localScale = new Vector3(1f, 1f, 1f);
-        }
-    }
-    */
 
     public int GetShotFlag() {
         return shotFlag;
@@ -210,31 +219,26 @@ public class PlayerMovement : NetworkBehaviour
     // rigidBody 가 무언가와 충돌할 때 호출되는 함수
     void OnTriggerEnter2D(Collider2D other) { // Collider2D other 로 부딪힌 객체를 받아옴
         if(other.tag == "Bullet"){  // 곂친 상대의 태그가 Bullet 인 경우 처리
-            hp -= 1;
+            var roomSlots = (NetworkManager.singleton as MafiaRoomManager).roomSlots;
+            foreach(var roomPlayer in roomSlots){
+                var mafiaRoomPlayer = roomPlayer as MafiaRoomPlayer;
+                if(roomPlayer.netId != (netId - 1)){  // 총알 발사 시 본인이 아닌경우 체력감소
+                    hp -= 1;
+                    Debug.Log("netId : " + netId);
+                    Debug.Log("roomPlayer : " + roomPlayer.netId);
+                    break;
+                } else{
+                    Debug.Log("same");
+                    break;
+                }
+            }
         }
-        Debug.Log(nicknameText.text + " : " + hp);
+        Debug.Log(nicknameText.text + " : " + hp);  // 플레이어의 hp 잔여량 표시
+        /*
+        Debug.Log("nicknameText.text : " + nicknameText.text);  //로컬
+        Debug.Log("nickname : " + nickname);    // 로컬
+        Debug.Log("PlayerSetting.playerName : " + PlayerSetting.playerName);    //유니티
+        */
     }
-
-    //이름 관련
-    [SyncVar(hook = "SetNickname_Hook")]
-    public string nickname;
-    [SerializeField]
-    private Text nicknameText;
-    public void SetNickname_Hook(string _, string value) {
-        //nicknameText.text = string.Format("{0}", FindObjectsOfType<MafiaRoomPlayer>().Length);
-        nicknameText.text = value;
-        Debug.Log("Main : " + nicknameText.text);
-        Debug.Log("value : " + value);
-        Debug.Log("nickname : " + nickname);
-    }
-
-/*
-    [Command]
-    public void CmdSetNickname(string nick) {
-        nickname = nick;
-        nicknameText.text = nick;
-        //lobbyPlayerCharacter.GetComponent<PlayerMovement>().nickname = nick;
-    }
-*/  
 
 }

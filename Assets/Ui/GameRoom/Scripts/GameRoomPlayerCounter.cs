@@ -6,6 +6,8 @@ using Mirror;
 
 public class GameRoomPlayerCounter : NetworkBehaviour
 {
+    
+
     [SyncVar]
     private int maxPlayer;
 
@@ -19,7 +21,7 @@ public class GameRoomPlayerCounter : NetworkBehaviour
         bool isStartable = players.Length >= 3;
         playerCountText.color = isStartable ? Color.white : Color.red;
         playerCountText.text = string.Format("{0} / {1} \n{2}", players.Length, maxPlayer, manager.networkAddress);
-        // ÇöÀç Á¢¼ÓÇÑ ÀÎ¿øÀÇ ¼ö°¡ ÃÖ¼Ò ÀÎ¿øÀÌ»óÀÇ °æ¿ì¿¡ µû¶ó È£Ãâ °¡´ÉÇÏ°Ô ÇØÁØ´Ù, 11Àå 8:20
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ ï¿½Î¿ï¿½ï¿½Ì»ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½Ø´ï¿½, 11ï¿½ï¿½ 8:20
         LobbyUIManager.Instance.SetInteractableStartButton(isStartable);
     }
 

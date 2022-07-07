@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 1244712443509485664}
   m_Layer: 6
   m_Name: Lobby Player Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,9 +157,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  rig: {fileID: 4262571915151281249, guid: ce2edb3a55d2d4d4dac6961b8865be83, type: 3}
   isMoving: 1
   moveSpeed: 3
-  rig: {fileID: 4262571915151281249, guid: ce2edb3a55d2d4d4dac6961b8865be83, type: 3}
+  BulletPrefab: {fileID: 4262571915151281250, guid: ce2edb3a55d2d4d4dac6961b8865be83,
+    type: 3}
+  hp: 0
+  Nname: 
+  ownerNetId: 0
   nickname: 
   nicknameText: {fileID: 2078526073204646605}
 --- !u!61 &8076970005543087678
@@ -175,7 +180,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.055}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -186,7 +191,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.05}
+  m_Size: {x: 0.54, y: 0.78}
   m_EdgeRadius: 0
 --- !u!50 &4866898034689806079
 Rigidbody2D:

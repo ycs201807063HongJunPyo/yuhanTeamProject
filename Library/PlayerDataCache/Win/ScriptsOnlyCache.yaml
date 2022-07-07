@@ -599,7 +599,7 @@ ScriptsOnlyBuild:
     className: XRSystemData
   - hash:
       serializedVersion: 2
-      Hash: 368bf380c58cff8c4639af08728c222a
+      Hash: 51953344ba349a190dbb5b024d265972
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MafiaRoomPlayer
@@ -695,7 +695,7 @@ ScriptsOnlyBuild:
     className: TestResultRendererCallback
   - hash:
       serializedVersion: 2
-      Hash: 30480bb0a6116e4fda3de81cf876c4f4
+      Hash: 6096c13b7bb8e784c083f42051004ebc
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Bullet
@@ -1055,7 +1055,7 @@ ScriptsOnlyBuild:
     className: NetworkRigidbody2D
   - hash:
       serializedVersion: 2
-      Hash: b1c6593a8fbcafb977f0f6f34bc601fa
+      Hash: b5c6bfbc3fb3054bbd256215f8139f4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMovement

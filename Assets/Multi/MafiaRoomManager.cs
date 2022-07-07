@@ -11,9 +11,9 @@ public class MafiaRoomManager : NetworkRoomManager
     public int playerCount;
     public override void OnRoomServerConnect(NetworkConnectionToClient conn) {
         base.OnRoomServerConnect(conn);
-        //IP ¼³Á¤ÇØÁÖ±â
-        IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());  // IP ÁÖ¼Ò ±¸ÇØÁÖ±â
-        //IPv6¾Æ´Ñ v4·Î °¡Á®¿ÍÁÖ±â
+        //IP ì„¤ì •í•´ì£¼ê¸°
+        IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());  // IP ì£¼ì†Œ êµ¬í•´ì£¼ê¸°
+        //IPv6ì•„ë‹Œ v4ë¡œ ê°€ì ¸ì™€ì£¼ê¸°
         string ClientIP = string.Empty;
         for (int i = 0; i < host.AddressList.Length; i++) {
             if (host.AddressList[i].AddressFamily == AddressFamily.InterNetwork) {
@@ -21,7 +21,7 @@ public class MafiaRoomManager : NetworkRoomManager
             }
         }
         base.networkAddress = ClientIP;
-        //ÃÖ´ë ÀÎ±¸¼ö ¸·±â
+        //ìµœëŒ€ ì¸êµ¬ìˆ˜ ë§‰ê¸°
         base.maxConnections = playerCount;
     }
 }
