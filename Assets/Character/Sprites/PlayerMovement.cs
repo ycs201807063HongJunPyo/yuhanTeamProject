@@ -13,6 +13,9 @@ public class PlayerMovement : NetworkBehaviour
     private float moveX;
     private float moveY;
     public bool isMoving;  //이동 가능한지 확인
+    
+    [SerializeField]
+    private Transform playerTransform;
 
     [SyncVar]
     public float moveSpeed;
@@ -132,6 +135,7 @@ public class PlayerMovement : NetworkBehaviour
 
     //사격 함수
     void Fire() {
+
         //보는 방향이 정확하지 못함(너무 세세하게 shotFlag가 수정되서), 버튼을 천천하고 정확히 1개씩만 눌러서 방향 확인해야함(일단 나가는거에 의의맞춤)
         
         ///누르면 쏘게하기
@@ -156,13 +160,14 @@ public class PlayerMovement : NetworkBehaviour
         }
 
         //컨트롤 나가면 총알 나감
-        if (curShotDelay > shotDelay && shotFlag > 0) {
+        if (Input.GetMouseButton(0) && shotFlag > 0) {
            
             var manager = NetworkRoomManager.singleton as MafiaRoomManager;
             //var bullet = Instantiate(manager.spawnPrefabs[1], transform.position, transform.rotation);
 
             if (manager.mode == Mirror.NetworkManagerMode.Host) {
                 RpcShotUpdate(GetShotFlag(), 1);
+                
             }            
             else{
                 CmdShotUpdate(GetShotFlag());
@@ -182,10 +187,16 @@ public class PlayerMovement : NetworkBehaviour
     
     [ClientRpc]
     public void RpcShotUpdate(int flag, int check) {
-
-        bullet = Instantiate(BulletPrefab, transform.position, transform.rotation);
+        var roomSlots = (NetworkManager.singleton as MafiaRoomManager).roomSlots;
+        foreach (var roomPlayer in roomSlots) {
+            var mafiaRoomPlayer = roomPlayer as MafiaRoomPlayer;
+            if (roomPlayer.netId == ownerNetId) {  // 총알 발사 시 본인이 아닌경우 체력감소
+                playerTransform = mafiaRoomPlayer.playerCharacter.transform;
+            }
+        }
+        bullet = Instantiate(BulletPrefab, playerTransform.position, playerTransform.rotation);
         rig = bullet.GetComponent<Rigidbody2D>();
-        if(check == 1){ // 호스트에서 전달받은 값만 처리
+        if (check == 1){ // 호스트에서 전달받은 값만 처리
             NetworkServer.Spawn(bullet);  // 총알 스폰
         }
         

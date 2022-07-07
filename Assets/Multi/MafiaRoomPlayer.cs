@@ -25,6 +25,7 @@ public class MafiaRoomPlayer : NetworkRoomPlayer
     public string nickname;
 
     public PlayerMovement playerCharacter;
+    
 
     //11장 1:52 에러
     public new void Start()

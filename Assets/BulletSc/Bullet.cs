@@ -14,7 +14,7 @@ public class Bullet : NetworkBehaviour {
     public uint attacker;
 
     void Start() => Destroy(gameObject, 2f);
-    
+
     void OnTriggerEnter2D(Collider2D collision) {
         if(collision.gameObject.tag == "LimitLine") {
             Destroy(gameObject);
