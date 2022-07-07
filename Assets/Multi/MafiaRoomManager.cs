@@ -17,6 +17,7 @@ public class MafiaRoomManager : NetworkRoomManager
         string ClientIP = string.Empty;
         for (int i = 0; i < host.AddressList.Length; i++) {
             if (host.AddressList[i].AddressFamily == AddressFamily.InterNetwork) {
+                
                 ClientIP = host.AddressList[i].ToString();
             }
         }
