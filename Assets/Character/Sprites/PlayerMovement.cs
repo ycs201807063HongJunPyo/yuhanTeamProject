@@ -33,6 +33,7 @@ public class PlayerMovement : NetworkBehaviour
     private int shotSpeed;  // 총알 속도 조정
     
     public int hp; // 플레이어 체력
+    private bool SpawnBullet;   // 총알 발사 가능 여부
 
     // 이름 관련
     [SyncVar(hook = nameof(SetOwnerNetId_Hook))]
@@ -167,7 +168,6 @@ public class PlayerMovement : NetworkBehaviour
 
             if (manager.mode == Mirror.NetworkManagerMode.Host) {
                 RpcShotUpdate(GetShotFlag(), 1);
-                
             }            
             else{
                 CmdShotUpdate(GetShotFlag());
@@ -186,18 +186,30 @@ public class PlayerMovement : NetworkBehaviour
     }
     
     [ClientRpc]
-    public void RpcShotUpdate(int flag, int check) {
+    public void RpcShotUpdate(int flag, int checking) {
         var roomSlots = (NetworkManager.singleton as MafiaRoomManager).roomSlots;
         foreach (var roomPlayer in roomSlots) {
             var mafiaRoomPlayer = roomPlayer as MafiaRoomPlayer;
-            if (roomPlayer.netId == ownerNetId) {  // 총알 발사 시 본인이 아닌경우 체력감소
+            if (roomPlayer.netId == ownerNetId) {
+                if(roomPlayer.index == 0 && checking == 0){ // 클라이언트가 발사 시 호스트는 처리 안함
+                    SpawnBullet = false;
+                    continue;
+                }
                 playerTransform = mafiaRoomPlayer.playerCharacter.transform;
+                SpawnBullet = true;
+                break;
             }
         }
+/*
         bullet = Instantiate(BulletPrefab, playerTransform.position, playerTransform.rotation);
         rig = bullet.GetComponent<Rigidbody2D>();
-        if (check == 1){ // 호스트에서 전달받은 값만 처리
+*/
+        if (SpawnBullet){
+            bullet = Instantiate(BulletPrefab, playerTransform.position, playerTransform.rotation);
+            rig = bullet.GetComponent<Rigidbody2D>();
             NetworkServer.Spawn(bullet);  // 총알 스폰
+        } else {
+            return;
         }
         
         if (flag == 1) {
