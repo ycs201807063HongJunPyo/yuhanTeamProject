@@ -49,6 +49,7 @@ public class PlayerMovement : NetworkBehaviour
         }
     }
 
+    // 이름 관련
     [SyncVar(hook = nameof(SetNickname_Hook))]
     public string nickname;
     [SerializeField]
@@ -66,6 +67,7 @@ public class PlayerMovement : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // 변수 초기 값 설정
         shotFlag = 0;
         shotDelay = 5;
         curShotDelay = 1;
@@ -165,7 +167,6 @@ public class PlayerMovement : NetworkBehaviour
         if (Input.GetMouseButton(0) && shotFlag > 0 && curShotDelay > shotDelay) {
            
             var manager = NetworkRoomManager.singleton as MafiaRoomManager;
-            //var bullet = Instantiate(manager.spawnPrefabs[1], transform.position, transform.rotation);
 
             if (manager.mode == Mirror.NetworkManagerMode.Host) {
                 RpcShotUpdate(GetShotFlag(), 1);
@@ -214,19 +215,15 @@ public class PlayerMovement : NetworkBehaviour
         
         if (flag == 1) {
             rig.AddForce(Vector2.right * shotSpeed * Time.deltaTime, ForceMode2D.Force);
-            //dirBullet = Vector3.right;
         }
         else if (flag == 2) {
             rig.AddForce(Vector2.left * shotSpeed * Time.deltaTime, ForceMode2D.Force);
-            //dirBullet = Vector3.left;
         }
         else if (flag == 3) {
             rig.AddForce(Vector2.up * shotSpeed * Time.deltaTime, ForceMode2D.Force);
-            //dirBullet = Vector3.up;
         }
         else if (flag == 4) {
             rig.AddForce(Vector2.down * shotSpeed * Time.deltaTime, ForceMode2D.Force);
-            //dirBullet = Vector3.down;
         }
     }
 
@@ -252,8 +249,9 @@ public class PlayerMovement : NetworkBehaviour
             if(hit){
                 hp -= 1;
             }
+            Debug.Log(nicknameText.text + " : " + hp);  // 플레이어의 hp 잔여량 표시
         }
-        Debug.Log(nicknameText.text + " : " + hp);  // 플레이어의 hp 잔여량 표시
+        
     }
 
 }

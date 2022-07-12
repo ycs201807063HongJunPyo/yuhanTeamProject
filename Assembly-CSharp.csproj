@@ -36,6 +36,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\BulletSc\BulletAttack.cs" />
      <Compile Include="Assets\Ui\Code(Ui)\OnlineUI.cs" />
      <Compile Include="Assets\Ui\GameRoom\Scripts\LobbyUIManager.cs" />
      <Compile Include="Assets\Multi\MafiaRoomPlayer.cs" />
@@ -54,7 +55,6 @@
      <Compile Include="Assets\Ui\Code(Ui)\MainMenuUi.cs" />
      <Compile Include="Assets\Ui\GameRoom\Scripts\GameRoomSettingUI.cs" />
      <Compile Include="Assets\Ui\Code(Ui)\GameRuleStore.cs" />
-     <Compile Include="Assets\BulletSc\BulletAttack.cs" />
      <None Include="Assets\ScriptTemplates\51-Mirror__Network Authenticator-NewNetworkAuthenticator.cs.txt" />
      <None Include="Assets\ScriptTemplates\56-Mirror__Network Discovery-NewNetworkDiscovery.cs.txt" />
      <None Include="Assets\Mirror\Version.txt" />

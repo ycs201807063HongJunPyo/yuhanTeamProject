@@ -54,15 +54,15 @@ public class GameRuleStore : NetworkBehaviour {
         }
     }
     
-    //���Z 11 0:38��
+    //영상 11장 0:38
     [SyncVar(hook = nameof(SetRolePlayerCount_Hook))]
-    private int rolePlayerCount; // ���Z 11
+    private int rolePlayerCount; // 영상 11장
     public void SetRolePlayerCount_Hook(int _, int value)
     {
         UpdateGameRuleOverview();
     }
     [SyncVar(hook = nameof(SetRoleTrainTime_Hook))]
-    private int roleTrainTime; // ���Z 11
+    private int roleTrainTime; // 영상 11장
     public void SetRoleTrainTime_Hook(int _, int value) {
         UpdateGameRuleOverview();
     }
@@ -73,11 +73,11 @@ public class GameRuleStore : NetworkBehaviour {
     public void UpdateGameRuleOverview() {
         var manager = NetworkManager.singleton as MafiaRoomManager;
         StringBuilder sb = new StringBuilder();
-        sb.Append($"���� ���� �ð� : {roleTrainTime}\n");
-        sb.Append($"�ִ� �÷��̾� �� : {rolePlayerCount}\n");  // 영상 11장 manager.playerCount -> playerCount
-        sb.Append($"�Ѿ� ȹ�� �ӹ� �� : {missionBullet}\n");
-        sb.Append($"ġ��� ȹ�� �ӹ� �� : {missionMedic}\n");
-        sb.Append($"ų ��Ÿ�� : {killTime}\n");
+        sb.Append($"열차 도착 시간 : {roleTrainTime}\n");
+        sb.Append($"최대 플레이어 수 : {rolePlayerCount}\n");  // 영상 11장 manager.playerCount -> playerCount
+        sb.Append($"총알 획득 임무 수 : {missionBullet}\n");
+        sb.Append($"치료약 획득 임무 수 : {missionMedic}\n");
+        sb.Append($"킬 쿨타임 : {killTime}\n");
         gameRuleOverview.text = sb.ToString();
     }
 

@@ -1,0 +1,984 @@
+fileFormatVersion: 2
+guid: d75e5ee7e726cca4f8ffc4ce642b80a2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5554764175861384807
+    second: _0024_hole-1-type-2
+  - first:
+      213: 6573820862585869881
+    second: _0025_hole-2-type-2
+  - first:
+      213: 5263515196379220290
+    second: _0026_hole-3-type-2
+  - first:
+      213: 3137406220735858726
+    second: _0027_hole-4-type-2
+  - first:
+      213: 7069666879364505530
+    second: _0028_hole-5-type-2
+  - first:
+      213: -39411377044875097
+    second: _0029_hole-6-type-2
+  - first:
+      213: 3931030277087209751
+    second: _0030_hole-7-type-2
+  - first:
+      213: -679507705890867033
+    second: _0031_hole-8-type-2
+  - first:
+      213: 1915053030611842911
+    second: _0032_hole-9-type-2
+  - first:
+      213: 6672979761249673514
+    second: _0033_hole-10-type-2
+  - first:
+      213: -3669026061925973862
+    second: _0034_hole-11-type-2
+  - first:
+      213: -3340431966726884436
+    second: _0035_hole-12-type-2
+  - first:
+      213: -6824140248817648707
+    second: _0036_hole13-type-2
+  - first:
+      213: 766184256736434660
+    second: _0037_hole-14-type-2
+  - first:
+      213: -9161492213599543711
+    second: _0038_hole-15-type-2
+  - first:
+      213: -6617465355908484382
+    second: _0039_hole-16-type-2
+  - first:
+      213: 8925379661659820647
+    second: _0040_hole-17-type-2
+  - first:
+      213: 2203418969398054020
+    second: _0041_hole-18-type-2
+  - first:
+      213: 3583466060654121137
+    second: _0042_hole-19-type-2
+  - first:
+      213: 395943576855623251
+    second: _0043_hole-20-type-2
+  - first:
+      213: -2478035572378335573
+    second: _0044_hole-21-type-2
+  - first:
+      213: -7671865204452892356
+    second: _0045_hole-22-type-2
+  - first:
+      213: -7965587689202679819
+    second: _0046_hole-23-type-2
+  - first:
+      213: -484775788984563086
+    second: _0047_hole-24-type-2
+  - first:
+      213: -2838244574696168321
+    second: _0049_floor-tile-type-2_1
+  - first:
+      213: -3716727225791180673
+    second: _0051_floor-tile-type-2_2
+  - first:
+      213: 894843531770733458
+    second: _0053_floor-tile-type-2_3
+  - first:
+      213: -2116478430832127654
+    second: _0055_floor-tile-type-2_4
+  - first:
+      213: 263855152437037472
+    second: _0057_floor-tile-type-2_5
+  - first:
+      213: 526928104685527810
+    second: _0059_floor-tile-type-2_6
+  - first:
+      213: -1271864913689629015
+    second: _0061_floor-tile-type-2_6
+  - first:
+      213: 6490962611778752785
+    second: _0063_floor-tile-type-2_8
+  - first:
+      213: -958335915982740152
+    second: _0065_floor-tile-type-2_9
+  - first:
+      213: -8502783330381408421
+    second: _0067_floor-tile-type-2_10
+  - first:
+      213: 1580101673100871165
+    second: _0069_floor-tile-type-2_11
+  - first:
+      213: 3806336724589886437
+    second: _0071_floor-tile-type-2_12
+  - first:
+      213: 817494143904556655
+    second: _0073_floor-tile-type-2_13
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: _0024_hole-1-type-2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1791
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fe7fdf1b1c7ce04ebfe40c3d38e88c5
+      internalID: -5554764175861384807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0025_hole-2-type-2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1531
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ccef0020ddbbcc41bd886cae947b8cc
+      internalID: 6573820862585869881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0026_hole-3-type-2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1271
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f8c679037162334485e130e69cb67a3
+      internalID: 5263515196379220290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0027_hole-4-type-2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1011
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e88d0bc048437c24ebdb6afc94227d3e
+      internalID: 3137406220735858726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0028_hole-5-type-2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 751
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b943af020808f144bdcf489b8e4c390
+      internalID: 7069666879364505530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0029_hole-6-type-2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 491
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0c7588709c1f054b8c3dc1d75e43354
+      internalID: -39411377044875097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0030_hole-7-type-2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 231
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 792a48b520179f94b94e9233d36b5686
+      internalID: 3931030277087209751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0031_hole-8-type-2
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 1791
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1579f6d8360e06e45b4c0040ffa04e5d
+      internalID: -679507705890867033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0032_hole-9-type-2
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 1791
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d53ebf5a18000a4c99fb6c3cd1513bd
+      internalID: 1915053030611842911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0033_hole-10-type-2
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 1791
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df9207b60b38d3a498279aafcb533509
+      internalID: 6672979761249673514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0034_hole-11-type-2
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 1791
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 583c26bab8eaac246b39945b930f9201
+      internalID: -3669026061925973862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0035_hole-12-type-2
+      rect:
+        serializedVersion: 2
+        x: 1301
+        y: 1791
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5874e673b73d4741ad52b5c0336bfa1
+      internalID: -3340431966726884436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0036_hole13-type-2
+      rect:
+        serializedVersion: 2
+        x: 1561
+        y: 1791
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e82c1610457ef2b439af3ef3dae20de6
+      internalID: -6824140248817648707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0037_hole-14-type-2
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 1531
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f77183a418a3ae14591047c16a09620a
+      internalID: 766184256736434660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0038_hole-15-type-2
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 1271
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d0dd2471c52c364d87fc6ae238ddd83
+      internalID: -9161492213599543711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0039_hole-16-type-2
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 1011
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26feea35cee7f9349b3a6cfda81c8606
+      internalID: -6617465355908484382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0040_hole-17-type-2
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 751
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f0c59510d1af9441b11e8f5568f1aa5
+      internalID: 8925379661659820647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0041_hole-18-type-2
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 491
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe038ad3cba2ff04ba772ece2e5b239b
+      internalID: 2203418969398054020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0042_hole-19-type-2
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 231
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6519eed5b4625034da2c6b0dc80d70c0
+      internalID: 3583466060654121137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0043_hole-20-type-2
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 1531
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af417a8c2ffc04b41b7911a0da3adf0d
+      internalID: 395943576855623251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0044_hole-21-type-2
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 1531
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c01454f9abb519247a0d1d8fe4bdadbd
+      internalID: -2478035572378335573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0045_hole-22-type-2
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 1531
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c51b1d7e92e98094fac3e89bfba28a01
+      internalID: -7671865204452892356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0046_hole-23-type-2
+      rect:
+        serializedVersion: 2
+        x: 1301
+        y: 1531
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f46ce2e301a8d95409ed41cca61bfd82
+      internalID: -7965587689202679819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0047_hole-24-type-2
+      rect:
+        serializedVersion: 2
+        x: 1561
+        y: 1531
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee792d6e4992770469f737495f8b0313
+      internalID: -484775788984563086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0049_floor-tile-type-2_1
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 1271
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a4f749abc0ee6e4cb464857c5baddf9
+      internalID: -2838244574696168321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0051_floor-tile-type-2_2
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 1011
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5ebca895f476f049ace42fd7d36d4ca
+      internalID: -3716727225791180673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0053_floor-tile-type-2_3
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 751
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccb2b6ca945824944a22857871edbdad
+      internalID: 894843531770733458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0055_floor-tile-type-2_4
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 491
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02a7a30a5a71c0e4eb84eb5d4317cc0d
+      internalID: -2116478430832127654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0057_floor-tile-type-2_5
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 231
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78683e11d375a73489389a721532480b
+      internalID: 263855152437037472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0059_floor-tile-type-2_6
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 1271
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87fffa8fea0c86f4b9e928d70bdc1220
+      internalID: 526928104685527810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0061_floor-tile-type-2_6
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 1271
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a066e0ea54989e745870aa43f6c8174b
+      internalID: -1271864913689629015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0063_floor-tile-type-2_8
+      rect:
+        serializedVersion: 2
+        x: 1301
+        y: 1271
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24cf28238bc76f54182d344955371f47
+      internalID: 6490962611778752785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0065_floor-tile-type-2_9
+      rect:
+        serializedVersion: 2
+        x: 1561
+        y: 1271
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2f952d7133edd748945fdbbb99086a1
+      internalID: -958335915982740152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0067_floor-tile-type-2_10
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 1011
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c5853a388f8387418f8b273fa9bb723
+      internalID: -8502783330381408421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0069_floor-tile-type-2_11
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 751
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85d4eaaf55b450e40baf8bed63264c4b
+      internalID: 1580101673100871165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0071_floor-tile-type-2_12
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 491
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f09fb0d63355da7429bb6e0dc46fc423
+      internalID: 3806336724589886437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0073_floor-tile-type-2_13
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 231
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f78629f054cf074e8a135a4f625c6ae
+      internalID: 817494143904556655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 26962f57abe0a364287cdb276e7cfcdc
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
