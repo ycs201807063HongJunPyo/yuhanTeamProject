@@ -11,7 +11,7 @@ public class Bullet : NetworkBehaviour {
     [SyncVar]
     public int bulletSpeed;
 
-    public uint attacker;
+    private bool check = true;  // 총알 발사가 본인인지 확인
 
     void Start() => Destroy(gameObject, 2f);
 
@@ -20,15 +20,12 @@ public class Bullet : NetworkBehaviour {
             Destroy(gameObject);
         }
         if(collision.tag == "Player"){
-            /*
-            var roomSlots = (NetworkManager.singleton as MafiaRoomManager).roomSlots;
-            foreach(var roomPlayer in roomSlots){
-                var mafiaRoomPlayer = roomPlayer as MafiaRoomPlayer;
-                // 동일값
-                Debug.Log("mafiaRoomPlayer : " + mafiaRoomPlayer.netId);
-                Debug.Log("roomPlayer : " + roomPlayer.netId);
-                
-            }*/
+            if(!check){
+                Destroy(gameObject);
+                return;
+            }
+            check = false;
         }
     }
+    
 }

@@ -34,6 +34,7 @@ public class PlayerMovement : NetworkBehaviour
     
     public int hp; // 플레이어 체력
     private bool SpawnBullet;   // 총알 발사 가능 여부
+    public string attacker;    // 공격자
 
     // 이름 관련
     [SyncVar(hook = nameof(SetOwnerNetId_Hook))]
@@ -161,7 +162,7 @@ public class PlayerMovement : NetworkBehaviour
         }
 
         //컨트롤 나가면 총알 나감
-        if (Input.GetMouseButton(0) && shotFlag > 0) {
+        if (Input.GetMouseButton(0) && shotFlag > 0 && curShotDelay > shotDelay) {
            
             var manager = NetworkRoomManager.singleton as MafiaRoomManager;
             //var bullet = Instantiate(manager.spawnPrefabs[1], transform.position, transform.rotation);
@@ -197,17 +198,16 @@ public class PlayerMovement : NetworkBehaviour
                 }
                 playerTransform = mafiaRoomPlayer.playerCharacter.transform;
                 SpawnBullet = true;
+                BulletAttack.attacker = nicknameText.text;
                 break;
             }
         }
-/*
-        bullet = Instantiate(BulletPrefab, playerTransform.position, playerTransform.rotation);
-        rig = bullet.GetComponent<Rigidbody2D>();
-*/
+        
         if (SpawnBullet){
             bullet = Instantiate(BulletPrefab, playerTransform.position, playerTransform.rotation);
             rig = bullet.GetComponent<Rigidbody2D>();
             NetworkServer.Spawn(bullet);  // 총알 스폰
+            attacker = nicknameText.text;
         } else {
             return;
         }
@@ -242,26 +242,18 @@ public class PlayerMovement : NetworkBehaviour
     // rigidBody 가 무언가와 충돌할 때 호출되는 함수
     void OnTriggerEnter2D(Collider2D other) { // Collider2D other 로 부딪힌 객체를 받아옴
         if(other.tag == "Bullet"){  // 곂친 상대의 태그가 Bullet 인 경우 처리
-            var roomSlots = (NetworkManager.singleton as MafiaRoomManager).roomSlots;
-            foreach(var roomPlayer in roomSlots){
-                var mafiaRoomPlayer = roomPlayer as MafiaRoomPlayer;
-                if(roomPlayer.netId != (netId - 1)){  // 총알 발사 시 본인이 아닌경우 체력감소
-                    hp -= 1;
-                    Debug.Log("netId : " + netId);
-                    Debug.Log("roomPlayer : " + roomPlayer.netId);
-                    break;
-                } else{
-                    Debug.Log("same");
-                    break;
-                }
+            
+            BulletAttack bullet = this.gameObject.AddComponent<BulletAttack>();
+            bool hit;
+            
+            BulletAttack.victim = nicknameText.text;
+            hit = bullet.Hit();
+
+            if(hit){
+                hp -= 1;
             }
         }
         Debug.Log(nicknameText.text + " : " + hp);  // 플레이어의 hp 잔여량 표시
-        /*
-        Debug.Log("nicknameText.text : " + nicknameText.text);  //로컬
-        Debug.Log("nickname : " + nickname);    // 로컬
-        Debug.Log("PlayerSetting.playerName : " + PlayerSetting.playerName);    //유니티
-        */
     }
 
 }
