@@ -14,7 +14,7 @@ public class LobbyUIManager : MonoBehaviour
     public GameRoomPlayerCounter GameRoomPlayerCounter { get { return gameRoomPlayerCounter; } }
 
     [SerializeField]
-    private Button startButton; //11Àå 7:44
+    private Button startButton; //11ì¥ 7:44
     [SerializeField]
     private Button settingButton;
 
@@ -31,29 +31,29 @@ public class LobbyUIManager : MonoBehaviour
     }
 
     public void ActiveSettingButton() {
-        settingButton.gameObject.SetActive(true);  // start¹öÆ°À» º¸¿©ÁÖ´Â ÇÔ¼ö È°¼ºÈ­
+        settingButton.gameObject.SetActive(true);  // startë²„íŠ¼ì„ ë³´ì—¬ì£¼ëŠ” í•¨ìˆ˜ í™œì„±í™”
     }
 
-    // 11Àå
+    // 11ì¥
     public void ActiveStartButton()
     {
-        startButton.gameObject.SetActive(true);  // start¹öÆ°À» º¸¿©ÁÖ´Â ÇÔ¼ö È°¼ºÈ­
+        startButton.gameObject.SetActive(true);  // startë²„íŠ¼ì„ ë³´ì—¬ì£¼ëŠ” í•¨ìˆ˜ í™œì„±í™”
     }
-    // 11Àå
+    // 11ì¥
     public void SetInteractableStartButton(bool isInteractable)
     {
-        startButton.interactable = isInteractable; // ¹öÆ°ÀÇ »óÈ£ÀÛ¿ëÀ» ²ô°Å³ª ÄÑÁÖµµ·Ï ¸¸µé¾îÁÖ´Â ÇÔ¼ö
+        startButton.interactable = isInteractable; // ë²„íŠ¼ì˜ ìƒí˜¸ì‘ìš©ì„ ë„ê±°ë‚˜ ì¼œì£¼ë„ë¡ ë§Œë“¤ì–´ì£¼ëŠ” í•¨ìˆ˜
     }
-    // 11Àå
+    // 11ï¿½ï¿½
     public void OnClickStartButton()
     {
-        var players = FindObjectsOfType<MafiaRoomPlayer>(); // ¸ğµç ÇÃ·¹ÀÌ¾îÀÇ readyToBeginÀ» true·Î º¯°æÇØ¼­ ÁØºñ½ÃÄÑÁØ´Ù
+        var players = FindObjectsOfType<MafiaRoomPlayer>(); // ëª¨ë“  í”Œë ˆì´ì–´ì˜ readyToBeginì„ trueë¡œ ë³€ê²½í•´ì„œ ì¤€ë¹„ì‹œì¼œì¤€ë‹¤
         for (int i = 0; i < players.Length; i++)
         {
             players[i].readyToBegin = true;
         }
 
-        // Room Manager°¡ serverChangeSceneÇÔ¼ö¸¦ ÀÌ¿ëÇØ¼­ Gameplay SceneÀ¸·Î º¯°æÇÑ´Ù
+        // Room Managerê°€ serverChangeSceneí•¨ìˆ˜ë¥¼ ì´ìš©í•´ì„œ Gameplay Sceneìœ¼ë¡œ ë³€ê²½í•œë‹¤
         var manager = NetworkManager.singleton as MafiaRoomManager;
         manager.ServerChangeScene(manager.GameplayScene);
     }

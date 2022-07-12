@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using System.Text;
 using Mirror;
 
-//Å³ ¹üÀ§, ETaskBar ¾ÈÇÔ
 public struct GameRuleData {
     public int missionBullet;
     public int missionMedic;
@@ -55,15 +54,15 @@ public class GameRuleStore : NetworkBehaviour {
         }
     }
     
-    //À¯ºZ 11 0:38ÃÊ
+    //ì˜ìƒ 11ì¥ 0:38
     [SyncVar(hook = nameof(SetRolePlayerCount_Hook))]
-    private int rolePlayerCount; // À¯ºZ 11
+    private int rolePlayerCount; // ì˜ìƒ 11ì¥
     public void SetRolePlayerCount_Hook(int _, int value)
     {
         UpdateGameRuleOverview();
     }
     [SyncVar(hook = nameof(SetRoleTrainTime_Hook))]
-    private int roleTrainTime; // À¯ºZ 11
+    private int roleTrainTime; // ì˜ìƒ 11ì¥
     public void SetRoleTrainTime_Hook(int _, int value) {
         UpdateGameRuleOverview();
     }
@@ -74,11 +73,11 @@ public class GameRuleStore : NetworkBehaviour {
     public void UpdateGameRuleOverview() {
         var manager = NetworkManager.singleton as MafiaRoomManager;
         StringBuilder sb = new StringBuilder();
-        sb.Append($"¿­Â÷ µµÂø ½Ã°£ : {roleTrainTime}\n");
-        sb.Append($"ÃÖ´ë ÇÃ·¹ÀÌ¾î ¼ö : {rolePlayerCount}\n");  // À¯ºZ11¹ø manager.playerCount -> playerCount
-        sb.Append($"ÃÑ¾Ë È¹µæ ÀÓ¹« ¼ö : {missionBullet}\n");
-        sb.Append($"Ä¡·á¾à È¹µæ ÀÓ¹« ¼ö : {missionMedic}\n");
-        sb.Append($"Å³ ÄğÅ¸ÀÓ : {killTime}\n");
+        sb.Append($"ì—´ì°¨ ë„ì°© ì‹œê°„ : {roleTrainTime}\n");
+        sb.Append($"ìµœëŒ€ í”Œë ˆì´ì–´ ìˆ˜ : {rolePlayerCount}\n");  // ì˜ìƒ 11ì¥ manager.playerCount -> playerCount
+        sb.Append($"ì´ì•Œ íšë“ ì„ë¬´ ìˆ˜ : {missionBullet}\n");
+        sb.Append($"ì¹˜ë£Œì•½ íšë“ ì„ë¬´ ìˆ˜ : {missionMedic}\n");
+        sb.Append($"í‚¬ ì¿¨íƒ€ì„ : {killTime}\n");
         gameRuleOverview.text = sb.ToString();
     }
 
@@ -89,16 +88,15 @@ public class GameRuleStore : NetworkBehaviour {
     }
     // Start is called before the first frame update
     void Start() {
-        //ÀÏ´Ü ÄÑÁÖ±â(È£½ºÆ® Á¶°Ç ¾ÈÁÜ)
         SetDefaultGameRule();
         UpdateGameRuleOverview();
         
-        if (isServer) // À¯ºZ11 0:43 //¿À·ù
+        if (isServer) // ì˜ìƒ 11ì¥ 0:43
         {
-            var manager = NetworkManager.singleton as MafiaRoomManager; //À¯ºZ 11 0:51
-            rolePlayerCount = manager.playerCount; //À¯ºZ11 0:51
-            roleTrainTime = manager.trainTime; //À¯ºZ11 0:51
-            SetDefaultGameRule(); //SetRecommendGameRule(); // ¿À·ù
+            var manager = NetworkManager.singleton as MafiaRoomManager; // ì˜ìƒ 11ì¥ 0:51
+            rolePlayerCount = manager.playerCount; //ì˜ìƒ 11ì¥ 0:51
+            roleTrainTime = manager.trainTime; //ì˜ìƒ 11ì¥ 0:51
+            SetDefaultGameRule(); //SetRecommendGameRule();
         }
     }
 

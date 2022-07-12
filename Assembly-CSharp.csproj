@@ -36,6 +36,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\BulletSc\BulletAttack.cs" />
      <Compile Include="Assets\Ui\Code(Ui)\OnlineUI.cs" />
      <Compile Include="Assets\Ui\GameRoom\Scripts\LobbyUIManager.cs" />
      <Compile Include="Assets\Multi\MafiaRoomPlayer.cs" />

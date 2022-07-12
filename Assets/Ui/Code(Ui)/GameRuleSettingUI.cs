@@ -10,7 +10,7 @@ public class GameRuleSettingUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //¿µ»ó 10¹ø¿¡ ÀÖ´Â È£½ºÆ®¸¸ ¼¼ÆÃ ¼öÁ¤ÇÏ°í½ÍÀ¸¸é ÀÌ°Å¼öÁ¤
+        //ì˜ìƒ 10ë²ˆì— ìˆëŠ” í˜¸ìŠ¤íŠ¸ë§Œ ì„¸íŒ… ìˆ˜ì •í•˜ê³ ì‹¶ìœ¼ë©´ ì´ê±°ìˆ˜ì •
     }
 
     // Update is called once per frame

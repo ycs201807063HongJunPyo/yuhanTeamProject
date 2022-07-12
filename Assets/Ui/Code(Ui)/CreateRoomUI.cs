@@ -74,7 +74,6 @@ public class CreateRoomUI : MonoBehaviour
         manager.playerCount = gameRoomData.maxPlayerCount;
         
         manager.StartHost();
-
         
     }
 
