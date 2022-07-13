@@ -158,12 +158,15 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   rig: {fileID: 4262571915151281249, guid: ce2edb3a55d2d4d4dac6961b8865be83, type: 3}
+  messageChatBox: {fileID: 4779733999340993470, guid: ce8baaf5bc7eb534bbb91775782f0561,
+    type: 3}
   isMoving: 1
+  playerTransform: {fileID: 0}
   moveSpeed: 3
   BulletPrefab: {fileID: 4262571915151281250, guid: ce2edb3a55d2d4d4dac6961b8865be83,
     type: 3}
   hp: 0
-  Nname: 
+  attacker: 
   ownerNetId: 0
   nickname: 
   nicknameText: {fileID: 2078526073204646605}

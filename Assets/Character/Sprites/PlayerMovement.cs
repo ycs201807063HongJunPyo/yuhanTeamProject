@@ -14,6 +14,7 @@ public class PlayerMovement : NetworkBehaviour
     private float moveY;
     public bool isMoving;  //이동 가능한지 확인
     
+    
     [SerializeField]
     private Transform playerTransform;
 
