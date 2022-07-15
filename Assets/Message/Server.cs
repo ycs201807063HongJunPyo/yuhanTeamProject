@@ -18,9 +18,8 @@ public class Server : MonoBehaviour
         clients = new List<ServerClient>();
         disconnectList = new List<ServerClient>();
         try {
-            var manager = MafiaRoomManager.singleton;
             int port = 7777;
-            server = new TcpListener(IPAddress.Parse(manager.networkAddress), port);
+            server = new TcpListener(IPAddress.Any, port);
             server.Start();
             StartListening();
             serverStarted = true;

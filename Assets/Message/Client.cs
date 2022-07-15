@@ -6,11 +6,12 @@ using System.Net.Sockets;
 using System.IO;
 using System;
 using TMPro;
+using Mirror;
 
-public class Client : MonoBehaviour {
+public class Client : NetworkBehaviour {
 	//public InputField NickInput;   //나중에 캐릭터 이름 가져오기
 	string clientName;
-
+	public InputField IpInput;
 	bool socketReady;
 	TcpClient socket;
 	NetworkStream stream;
@@ -21,14 +22,13 @@ public class Client : MonoBehaviour {
 	public void ConnectToServer() {
 		// 이미 연결되었다면 함수 무시
 		if (socketReady) return;
-		var manager = MafiaRoomManager.singleton;
 		// 기본 호스트/ 포트번호
-		string ip = manager.networkAddress;
 		int port = 7777;
 
 		// 소켓 생성
 		try {
-			socket = new TcpClient(ip, port);
+			var manager = NetworkRoomManager.singleton as MafiaRoomManager;
+			socket = new TcpClient(manager.networkAddress, port);
 			stream = socket.GetStream();
 			writer = new StreamWriter(stream);
 			reader = new StreamReader(stream);

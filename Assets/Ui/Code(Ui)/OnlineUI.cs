@@ -16,7 +16,7 @@ public class OnlineUI : MonoBehaviour
     // Start is called before the first frame update
 
     [SerializeField]
-    private InputField textIp;
+    public InputField textIp;
     public void OnClickCreateRoomButton() {
         if(playerNameInputField.text != "") {
             PlayerSetting.playerName = playerNameInputField.text;
@@ -33,6 +33,7 @@ public class OnlineUI : MonoBehaviour
             
             PlayerSetting.playerName = playerNameInputField.text;
             var manager = MafiaRoomManager.singleton;
+            //Client client = new Client();
 
             /*
             IPHostEntry hostEntry = Dns.GetHostEntry(manager.networkAddress);
@@ -51,6 +52,8 @@ public class OnlineUI : MonoBehaviour
             //Debug.Log(address);
             manager.networkAddress = textIp.text;
             manager.StartClient();
+            //client.ConnectToServer();
+
         }
         else {
             Debug.Log("이름 필요");  //애니메이션 못해서 로그로함

@@ -4,8 +4,7 @@ using UnityEngine;
 using Mirror;
 using UnityEngine.UI;
 
-public class PlayerMovement : NetworkBehaviour
-{
+public class PlayerMovement : NetworkBehaviour {
     public Rigidbody2D rig;
     private Animator anim;  // 애니메이션 관련 정보
 
@@ -13,8 +12,10 @@ public class PlayerMovement : NetworkBehaviour
     private float moveX;
     private float moveY;
     public bool isMoving;  //이동 가능한지 확인
-    
-    
+
+    [SerializeField]
+    public Text testChat;
+
     [SerializeField]
     private Transform playerTransform;
 
@@ -32,7 +33,7 @@ public class PlayerMovement : NetworkBehaviour
     private float shotDelay;  //조준 끝(사격)
     private float curShotDelay;  //조준 중(조준)
     private int shotSpeed;  // 총알 속도 조정
-    
+
     public int hp; // 플레이어 체력
     private bool SpawnBullet;   // 총알 발사 가능 여부
     public string attacker;    // 공격자
@@ -42,8 +43,8 @@ public class PlayerMovement : NetworkBehaviour
     public uint ownerNetId;
     public void SetOwnerNetId_Hook(uint _, uint newOwnerId) {
         var players = FindObjectsOfType<MafiaRoomPlayer>();
-        foreach(var player in players) {
-            if(newOwnerId == player.netId) {
+        foreach (var player in players) {
+            if (newOwnerId == player.netId) {
                 player.playerCharacter = this;
                 break;
             }
@@ -57,17 +58,14 @@ public class PlayerMovement : NetworkBehaviour
     private Text nicknameText;
     public void SetNickname_Hook(string _, string value) {
         nicknameText.text = value;
-        Debug.Log(nicknameText.text + " Player훅으로 오는 value값");
     }
 
-    void Awake()
-    {
+    void Awake() {
         anim = GetComponent<Animator>();
     }
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         // 변수 초기 값 설정
         shotFlag = 0;
         shotDelay = 5;
@@ -84,16 +82,25 @@ public class PlayerMovement : NetworkBehaviour
         }
     }
 
-    void FixedUpdate()
-    {
+    void FixedUpdate() {
+        Order();
         Move();
         Fire();
         AimDelay();
+        
+    }
+
+    void Order() {
+
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            CmdSendMessage("Hello");
+            Debug.Log("호출");
+        }
+
     }
 
     // 이동 & 애니메이션 함수
-    void Move()
-    {
+    void Move() {
         if (hasAuthority && isMoving) {
             //바뀐 이동 시작
             Vector3 dir = Vector3.ClampMagnitude(new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0f), 1f);
@@ -125,24 +132,23 @@ public class PlayerMovement : NetworkBehaviour
                 anim.SetBool("isChange", false);
             }
             // 애니메이션 세팅 끝
-        }        
-        
-        // 닉네임 방향전환
-        if (transform.localScale.x < 0)
-        {
-            nicknameText.transform.localScale = new Vector3(-1f, 1f, 1f);
         }
-        else if (transform.localScale.x > 0)
-        {
+        // 닉네임 방향전환
+        if (transform.localScale.x < 0) {
+            nicknameText.transform.localScale = new Vector3(-1f, 1f, 1f);
+            testChat.transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+        else if (transform.localScale.x > 0) {
             nicknameText.transform.localScale = new Vector3(1f, 1f, 1f);
-        }        
+            testChat.transform.localScale = new Vector3(1f, 1f, 1f);
+        }
     }
 
     //사격 함수
     void Fire() {
 
         //보는 방향이 정확하지 못함(너무 세세하게 shotFlag가 수정되서), 버튼을 천천하고 정확히 1개씩만 눌러서 방향 확인해야함(일단 나가는거에 의의맞춤)
-        
+
         ///누르면 쏘게하기
         //Input.GetButton("Fire1")
 
@@ -166,35 +172,35 @@ public class PlayerMovement : NetworkBehaviour
 
         //컨트롤 나가면 총알 나감
         if (Input.GetMouseButton(0) && shotFlag > 0 && curShotDelay > shotDelay) {
-           
+            
             var manager = NetworkRoomManager.singleton as MafiaRoomManager;
 
             if (manager.mode == Mirror.NetworkManagerMode.Host) {
                 RpcShotUpdate(GetShotFlag(), 1);
-            }            
-            else{
+            }
+            else {
                 CmdShotUpdate(GetShotFlag());
             }
-            
+
             curShotDelay = 0;
         }
         else {
             return;
         }
     }
-    
+
     [Command(requiresAuthority = false)]
     public void CmdShotUpdate(int shotFlag) {
         RpcShotUpdate(shotFlag, 0);
     }
-    
+
     [ClientRpc]
     public void RpcShotUpdate(int flag, int checking) {
         var roomSlots = (NetworkManager.singleton as MafiaRoomManager).roomSlots;
         foreach (var roomPlayer in roomSlots) {
             var mafiaRoomPlayer = roomPlayer as MafiaRoomPlayer;
             if (roomPlayer.netId == ownerNetId) {
-                if(roomPlayer.index == 0 && checking == 0){ // 클라이언트가 발사 시 호스트는 처리 안함
+                if (roomPlayer.index == 0 && checking == 0) { // 클라이언트가 발사 시 호스트는 처리 안함
                     SpawnBullet = false;
                     continue;
                 }
@@ -204,16 +210,17 @@ public class PlayerMovement : NetworkBehaviour
                 break;
             }
         }
-        
-        if (SpawnBullet){
+
+        if (SpawnBullet) {
             bullet = Instantiate(BulletPrefab, playerTransform.position, playerTransform.rotation);
             rig = bullet.GetComponent<Rigidbody2D>();
             NetworkServer.Spawn(bullet);  // 총알 스폰
             attacker = nicknameText.text;
-        } else {
+        }
+        else {
             return;
         }
-        
+
         if (flag == 1) {
             rig.AddForce(Vector2.right * shotSpeed * Time.deltaTime, ForceMode2D.Force);
         }
@@ -230,7 +237,8 @@ public class PlayerMovement : NetworkBehaviour
 
     //사격 재장전 함수
     void AimDelay() {
-        curShotDelay = curShotDelay + Time.deltaTime ;
+        curShotDelay = curShotDelay + Time.deltaTime;
+        
     }
 
     public int GetShotFlag() {
@@ -239,20 +247,38 @@ public class PlayerMovement : NetworkBehaviour
 
     // rigidBody 가 무언가와 충돌할 때 호출되는 함수
     void OnTriggerEnter2D(Collider2D other) { // Collider2D other 로 부딪힌 객체를 받아옴
-        if(other.tag == "Bullet"){  // 곂친 상대의 태그가 Bullet 인 경우 처리
-            
+        if (other.tag == "Bullet") {  // 곂친 상대의 태그가 Bullet 인 경우 처리
+
             BulletAttack bullet = this.gameObject.AddComponent<BulletAttack>();
             bool hit;
-            
+
             BulletAttack.victim = nicknameText.text;
             hit = bullet.Hit();
 
-            if(hit){
+            if (hit) {
                 hp -= 1;
             }
             Debug.Log(nicknameText.text + " : " + hp);  // 플레이어의 hp 잔여량 표시
         }
-        
+
     }
 
+    
+
+    [Command]
+    public void CmdSendMessage(string message) {
+        RpcHandleMessage($"{nickname} : {message}");
+        
+    }
+    [ClientRpc]
+    private void RpcHandleMessage(string message) {
+        testChat.text = message;
+        StartCoroutine("RemoveChatMessageCoroutine");  //코루틴 호출
+    }
+    //코루틴
+    private IEnumerator RemoveChatMessageCoroutine() {
+        yield return new WaitForSeconds(2.0f);  //대기시간
+        testChat.text = "";
+        yield return null;
+    }
 }
