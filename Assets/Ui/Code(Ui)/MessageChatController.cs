@@ -9,22 +9,30 @@ using TMPro;
 
 public class MessageChatController : NetworkBehaviour {
 
+
+    public static MessageChatController Instance;
+
     [SerializeField]
     private GameObject textChatPre;
     [SerializeField]
     private Transform parentContent;
     [SerializeField]
     private TMP_InputField inputField;
+    [SerializeField]
+    private Text nickText;
 
     private string ID;
     private static event Action<string> OnMessage;
+
+    void Start() {
+        Instance = this;
+    }
 
     public void OnEndEditEventMethod() {
         if (Input.GetKeyDown(KeyCode.Return)) {
             Send();
         }
     }
-
 
     public void UpdateChat() {
         if (inputField.text.Equals("")) return;  //비어있으면 종료
@@ -38,20 +46,19 @@ public class MessageChatController : NetworkBehaviour {
     public void Send() {
         if (!Input.GetKeyDown(KeyCode.Return)) { return; }
         if (string.IsNullOrWhiteSpace(inputField.text)) { return; }
-        CmdSendMessage(inputField.text);
+        string tempNick = MafiaRoomPlayer.MyRoomPlayer.nickname;
+        CmdSendMessage((tempNick + " : " + inputField.text));
         inputField.text = string.Empty;
     }
 
     [Command(requiresAuthority = false)]
     private void CmdSendMessage(string message) {
-        Debug.Log("Cmd진입");
         // Validate message
         RpcHandleMessage($"{message}");
     }
 
     [ClientRpc]
     private void RpcHandleMessage(string message) {
-        Debug.Log("Rpc진입");
         OnMessage?.Invoke($"\n{message}");
         GameObject clone = Instantiate(textChatPre, parentContent);  //대화 내용 출력을 위해 text UI 생성
         clone.GetComponent<TextMeshProUGUI>().text = $"{message}";

@@ -39,11 +39,13 @@ public class MafiaRoomPlayer : NetworkRoomPlayer
             SpawnLobbyPlayerCharacter();
             LobbyUIManager.Instance.ActiveStartButton();  // 서버 역활을 해주는 경우에만 호출 가능하도록 만듬, 11장 8:11
             LobbyUIManager.Instance.ActiveSettingButton();
+            
         }
 
         if (isLocalPlayer)  //isLocalPlayer
         {
             CmdSetNickname(PlayerSetting.playerName);
+            
 
         }
 

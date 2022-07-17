@@ -91,12 +91,12 @@ public class PlayerMovement : NetworkBehaviour {
     }
 
     void Order() {
-
+        
         if (Input.GetKeyDown(KeyCode.Space)) {
             CmdSendMessage("Hello");
             Debug.Log("호출");
         }
-
+        
     }
 
     // 이동 & 애니메이션 함수

@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Mirror;
 using UnityEngine.Events;
 using UnityEngine.UI;
-
+using Mirror;
 public class LobbyUIManager : MonoBehaviour
 {
     public static LobbyUIManager Instance;

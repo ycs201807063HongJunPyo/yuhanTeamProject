@@ -66,16 +66,16 @@ public class CreateRoomUI : MonoBehaviour
         }
     }
 
-    public void CeateRoom()
-    {
+    public void CeateRoom() {
         //Server server = new Server();
         //Client client = new Client();
         var manager = NetworkRoomManager.singleton as MafiaRoomManager;
         manager.trainTime = gameRoomData.escTime;
         manager.playerCount = gameRoomData.maxPlayerCount;
 
-        
+
         manager.StartHost();
+
         //server.ServerCreate();
         //client.ConnectToServer();
     }
