@@ -3,19 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MessageChatUI : MonoBehaviour {
+public class MessageChatUI : MonoBehaviour
+{
 
     [SerializeField]
     private InputField inputField;
     // Update is called once per frame
+
     void Update()
     {
-        //Æ÷Ä¿½º ¼³Á¤
-        if (Input.GetKeyDown(KeyCode.Return) && inputField.isFocused == false) {
+        // ì—”í„°ì³¤ì„ë•Œ í¬ì»¤ìŠ¤
+        if (Input.GetKeyDown(KeyCode.Return) && inputField.isFocused == false)
+        {
             inputField.ActivateInputField();
         }
-        //´İ¾ÆÁÖ±â(esc)
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        // esc ëˆŒë €ì„ë•Œ ë‹«ê¸°
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            MessageBoxSetting.activeMessageChat = false;
             gameObject.SetActive(false);
         }
     }

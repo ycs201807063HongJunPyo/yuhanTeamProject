@@ -26,10 +26,11 @@ public class LobbyUIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void ActiveSettingButton() {
+    public void ActiveSettingButton()
+    {
         settingButton.gameObject.SetActive(true);  // start버튼을 보여주는 함수 활성화
     }
 
@@ -43,7 +44,7 @@ public class LobbyUIManager : MonoBehaviour
     {
         startButton.interactable = isInteractable; // 버튼의 상호작용을 끄거나 켜주도록 만들어주는 함수
     }
-    // 11��
+    // 11장
     public void OnClickStartButton()
     {
         var players = FindObjectsOfType<MafiaRoomPlayer>(); // 모든 플레이어의 readyToBegin을 true로 변경해서 준비시켜준다
