@@ -4381,8 +4381,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1053167337}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.000061035156, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1425781948}
@@ -4600,8 +4600,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 531, y: -151}
-  m_SizeDelta: {x: 1060, y: 300}
+  m_AnchoredPosition: {x: 531, y: -11}
+  m_SizeDelta: {x: 1060, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1117550349
 MonoBehaviour:
@@ -7049,8 +7049,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 423}
-  m_SizeDelta: {x: -4, y: 302}
+  m_AnchoredPosition: {x: 0, y: 187}
+  m_SizeDelta: {x: -4, y: 22}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1809639232
 MonoBehaviour:
@@ -7393,6 +7393,7 @@ GameObject:
   - component: {fileID: 2028499092}
   - component: {fileID: 2028499091}
   - component: {fileID: 2028499090}
+  - component: {fileID: 2028499093}
   m_Layer: 5
   m_Name: Message Button
   m_TagString: Untagged
@@ -7476,6 +7477,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 2028499093}
+        m_TargetAssemblyTypeName: MessageBoxSetting, Assembly-CSharp
+        m_MethodName: OnClickMessageButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &2028499091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7514,6 +7527,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2028499088}
   m_CullTransparentMesh: 1
+--- !u!114 &2028499093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028499088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5222a3f83b37ad941a2c9d1ba99b0308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2108953660
 GameObject:
   m_ObjectHideFlags: 0

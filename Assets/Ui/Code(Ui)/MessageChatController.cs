@@ -7,9 +7,8 @@ using Mirror;
 using TMPro;
 
 
-public class MessageChatController : NetworkBehaviour {
-
-
+public class MessageChatController : NetworkBehaviour
+{
     public static MessageChatController Instance;
 
     [SerializeField]
@@ -24,26 +23,31 @@ public class MessageChatController : NetworkBehaviour {
     private string ID;
     private static event Action<string> OnMessage;
 
-    void Start() {
+    void Start()
+    {
         Instance = this;
     }
 
-    public void OnEndEditEventMethod() {
-        if (Input.GetKeyDown(KeyCode.Return)) {
+    public void OnEndEditEventMethod()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
             Send();
         }
     }
 
-    public void UpdateChat() {
-        if (inputField.text.Equals("")) return;  //ºñ¾îÀÖÀ¸¸é Á¾·á
-        GameObject clone = Instantiate(textChatPre, parentContent);  //´ëÈ­ ³»¿ë Ãâ·ÂÀ» À§ÇØ text UI »ı¼º
-        clone.GetComponent<TextMeshProUGUI>().text = $"{ID} : { inputField.text}";
+    public void UpdateChat()
+    {
+        if (inputField.text.Equals("")) return;  //ë¹„ì–´ìˆìœ¼ë©´ ì¢…ë£Œ
+        GameObject clone = Instantiate(textChatPre, parentContent);   //ëŒ€í™” ë‚´ìš© ì¶œë ¥ì„ ìœ„í•´ text UI ìƒì„±
+        clone.GetComponent<TextMeshProUGUI>().text = $"{ID} : {inputField.text}";
         inputField.text = "";
     }
 
     // When a client hits the enter button, send the message in the InputField
     [Client]
-    public void Send() {
+    public void Send()
+    {
         if (!Input.GetKeyDown(KeyCode.Return)) { return; }
         if (string.IsNullOrWhiteSpace(inputField.text)) { return; }
         string tempNick = MafiaRoomPlayer.MyRoomPlayer.nickname;
@@ -52,18 +56,21 @@ public class MessageChatController : NetworkBehaviour {
     }
 
     [Command(requiresAuthority = false)]
-    private void CmdSendMessage(string message) {
+    private void CmdSendMessage(string message)
+    {
         // Validate message
         RpcHandleMessage($"{message}");
     }
 
     [ClientRpc]
-    private void RpcHandleMessage(string message) {
+    private void RpcHandleMessage(string message)
+    {
         OnMessage?.Invoke($"\n{message}");
-        GameObject clone = Instantiate(textChatPre, parentContent);  //´ëÈ­ ³»¿ë Ãâ·ÂÀ» À§ÇØ text UI »ı¼º
+        GameObject clone = Instantiate(textChatPre, parentContent);  //ëŒ€í™” ë‚´ìš© ì¶œë ¥ì„ ìœ„í•´ text UI ìƒì„±
         clone.GetComponent<TextMeshProUGUI>().text = $"{message}";
         inputField.text = "";
     }
+
 }/*
 using Mirror;
 using System;
